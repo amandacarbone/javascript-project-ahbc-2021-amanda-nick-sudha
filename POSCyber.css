@@ -1,0 +1,19 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.cortical-stack,
+.stealth-field,
+.optics,
+.neuro,
+.dermal,
+.immune,
+.nervous,
+.respiratory,
+.circulatory,
+.arms,
+.legs{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
