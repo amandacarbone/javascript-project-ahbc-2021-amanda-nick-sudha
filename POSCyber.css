@@ -1,12 +1,40 @@
 * {
+  font-family: Gugi;
   padding: 0;
   margin: 0;
 }
+
+video {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.viewport-header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #ff00e9;
+}
+
+.headerIcon,
+.shoppingCart {
+  margin: 5px;
+}
+
+h2 {
+  color: #fdff00;
+}
+
 .cortical-stack,
 .stealth-field,
 .optics,
 .neuro,
 .dermal,
+.skeletal,
 .immune,
 .nervous,
 .respiratory,
