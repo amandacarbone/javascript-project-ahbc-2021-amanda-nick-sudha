@@ -93,6 +93,7 @@ button:hover {
   width: 600px;
   color: #000000;
   background-color: #FFFFFF;
+  border: 5px solid #000000;
 }
 
 .checkout {
@@ -102,6 +103,7 @@ button:hover {
   width: 600px;
   color: #000000;
   background-color: #FFFFFF;
+  border: 5px solid #000000;
 }
 
 .receipt {
@@ -111,6 +113,7 @@ button:hover {
   width: 600px;
   color: #000000;
   background-color: #FFFFFF;
+  border: 5px solid #000000;
 }
 
 footer {
