@@ -4,15 +4,138 @@
   margin: 0;
 }
 
-.viewProductWindow{
-  position: absolute;
+.productWindow{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  position: fixed;
   height: 500px;
   width: 500px;
-  background-color: red;
-  top: 50%;
-  left: 50%
-  
+  color: #000000;
+  background-color: #FFFFFF;
+  border: 5px solid #000000;
+  top: 30%;
+  right: 10%;
+  bottom: 50%;
 }
+
+.checkoutWindow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  height: 500px;
+  width: 500px;
+  color: #000000;
+  background-color: #FFFFFF;
+  border: 5px solid #000000;
+  top: 30%;
+  right: 10%;
+  bottom: 50%;
+}
+
+.cartList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  background-color: #ff00e9;
+  font-size: 3rem;
+  margin: 10px;
+  width: 490px;
+  height: 50px;
+}
+
+.orderSummary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  background-color: #ff00e9;
+  font-size: 3rem;
+  margin: 10px;
+  width: 490px;
+  height: 50px;
+}
+
+.paymentOptions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  color: #FFFFFF;
+  background-color: #ff00e9;
+  font-size: 3rem;
+  margin: 10px;
+  width: 300px;
+  height: 200px;
+}
+
+.cashWindow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  position: fixed;
+  height: 500px;
+  width: 500px;
+  color: #000000;
+  background-color: #FFFFFF;
+  border: 5px solid #000000;
+  top: 30%;
+  right: 10%;
+  bottom: 50%;
+}
+
+.cashInput {
+  font-size: 20px;
+  height: 50px;
+}
+
+.cardWindow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  height: 500px;
+  width: 500px;
+  color: #000000;
+  background-color: #FFFFFF;
+  border: 5px solid #000000;
+  top: 30%;
+  right: 10%;
+  bottom: 50%;
+}
+
+.cardNumber {
+  font-size: 20px;
+  height: 50px;
+}
+
+.cardExpiration {
+  font-size: 20px;
+  height: 50px;
+}
+
+.cardCVV {
+  font-size: 20px;
+  height: 50px;
+}
+
+.receiptWindow {
+  position: fixed;
+  height: 500px;
+  width: 500px;
+  color: #000000;
+  background-color: #FFFFFF;
+  border: 5px solid #000000;
+  top: 30%;
+  right: 10%;
+  bottom: 50%;
+}
+
 video {
   object-fit: cover;
   width: 100vw;
@@ -95,36 +218,6 @@ button:hover {
   border: 5px solid #fdff00;
 }
 
-.viewProduct {
-  display: block;
-  margin: 0 auto;
-  height: 500px;
-  width: 600px;
-  color: #000000;
-  background-color: #FFFFFF;
-  border: 5px solid #000000;
-}
-
-.checkout {
-  display: block;
-  margin: 0 auto;
-  height: 500px;
-  width: 600px;
-  color: #000000;
-  background-color: #FFFFFF;
-  border: 5px solid #000000;
-}
-
-.receipt {
-  display: block;
-  margin: 0 auto;
-  height: 500px;
-  width: 600px;
-  color: #000000;
-  background-color: #FFFFFF;
-  border: 5px solid #000000;
-}
-
 footer {
   background-color: #ff00e9;
   margin-top: 50px;
@@ -159,6 +252,100 @@ h1 {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+}
+
+.productWindow{
+  align-items: flex-end;
+  position: fixed;
+  height: 300px;
+  width: 700px;
+  color: #000000;
+  background-color: #FFFFFF;
+  border: 5px solid #000000;
+  padding: 50px;
+  top: 25%;
+  right: 30%;
+  bottom: 50%;
+}
+
+.checkoutWindow {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: fixed;
+  height: 600px;
+  width: 1200px;
+  color: #000000;
+  background-color: #FFFFFF;
+  border: 5px solid #000000;
+  top: 25%;
+  right: 18%;
+  bottom: 50%;
+}
+
+.cartList {
+  color: #FFFFFF;
+  background-color: #ff00e9;
+  margin-top: 10px;
+  width: 490px;
+  height: 50px;
+}
+
+.orderSummary {
+  color: #FFFFFF;
+  background-color: #ff00e9;
+  font-size: 3rem;
+  margin: 10px;
+  width: 490px;
+  height: 50px;
+}
+
+.paymentOptions {
+  flex-direction: column;
+  align-self: flex-end;
+  color: #FFFFFF;
+  background-color: #ff00e9;
+  font-size: 2rem;
+  margin: 10px;
+  width: 300px;
+  height: 200px;
+}
+
+.cashWindow {
+  position: fixed;
+  height: 500px;
+  width: 500px;
+  color: #000000;
+  background-color: #FFFFFF;
+  border: 5px solid #000000;
+  top: 30%;
+  right: 36%;
+  bottom: 50%;
+}
+
+.cardWindow {
+  position: fixed;
+  height: 500px;
+  width: 500px;
+  color: #000000;
+  background-color: #FFFFFF;
+  border: 5px solid #000000;
+  top: 30%;
+  right: 36%;
+  bottom: 50%;
+}
+
+.receiptWindow {
+  position: fixed;
+  height: 500px;
+  width: 500px;
+  color: #000000;
+  background-color: #FFFFFF;
+  border: 5px solid #000000;
+  top: 30%;
+  right: 36%;
+  bottom: 50%;
 }
 
 }
