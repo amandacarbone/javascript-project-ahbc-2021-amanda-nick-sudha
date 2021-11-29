@@ -270,9 +270,7 @@ h1 {
 
 .checkoutWindow {
   flex-direction: row;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: space-between;
+  justify-content: space-evenly;
   position: fixed;
   height: 600px;
   width: 1200px;
@@ -285,6 +283,7 @@ h1 {
 }
 
 .cartList {
+  align-self: flex-start;
   color: #FFFFFF;
   background-color: #ff00e9;
   margin-top: 10px;
@@ -293,6 +292,8 @@ h1 {
 }
 
 .orderSummary {
+  transform: translateX(290px);
+  align-self: flex-start;
   color: #FFFFFF;
   background-color: #ff00e9;
   font-size: 3rem;
