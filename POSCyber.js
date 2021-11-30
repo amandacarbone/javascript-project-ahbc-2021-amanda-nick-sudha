@@ -1,5 +1,12 @@
 (function () {
   const viewProductButtons = document.querySelectorAll(".viewProductButton");
+  const displayWindow = document.querySelector(".displayWindow");
+  const closeButton = document.createElement("button");
+  const backButton = document.createElement("button");
+
+  closeButton.classList.add("closeButton");
+  closeButton.innerText = "X";
+  backButton.innerText = "<-";
 
   for (let button of viewProductButtons) {
     button.addEventListener("click", (event) => {
@@ -9,37 +16,44 @@
       const productDescription = document.createElement("p");
       const optionSelector = document.createElement("select");
       const quantityInput = document.createElement("input");
-      
+
       productWindow.classList.add("productWindow");
-      
+
       addtoCartButton.classList.add("viewProductButton");
       addtoCartButton.innerText = "Add to Cart";
-      
+
       productName.innerText = "Product Name";
       productDescription.innerText = "Lorem ipsum dolor sit amet.";
 
-      quantityInput.type="number";
-      
-      document.body.append(productWindow);
+      quantityInput.type = "number";
+
+      displayWindow.append(productWindow);
+      productWindow.append(closeButton);
       productWindow.append(productName);
       productWindow.append(productDescription);
       productWindow.append(optionSelector);
       productWindow.append(quantityInput);
       productWindow.append(addtoCartButton);
-    });
-  };
 
-  document.querySelector(".shoppingCartButton").addEventListener("click", (event) => {
+      closeButton.addEventListener("click", (event) => {
+        displayWindow.replaceChildren();
+      });
+    });
+  }
+
+  document
+    .querySelector(".shoppingCartButton")
+    .addEventListener("click", (event) => {
       const checkoutWindow = document.createElement("div");
       const cartList = document.createElement("div");
       const orderSummary = document.createElement("div");
       const paymentOptions = document.createElement("div");
       const cashButton = document.createElement("button");
       const cardButton = document.createElement("button");
-      
+
       checkoutWindow.classList.add("checkoutWindow");
 
-      cartList.classList.add("cartList")
+      cartList.classList.add("cartList");
       cartList.innerText = "Cart";
 
       orderSummary.classList.add("orderSummary");
@@ -53,93 +67,107 @@
 
       cardButton.classList.add("viewProductButton");
       cardButton.innerText = "Card";
-      
-      document.body.append(checkoutWindow);
+
+      displayWindow.append(checkoutWindow);
+      checkoutWindow.append(closeButton);
       checkoutWindow.append(cartList);
       checkoutWindow.append(orderSummary);
       checkoutWindow.append(paymentOptions);
       paymentOptions.append(cashButton);
       paymentOptions.append(cardButton);
-  
 
-  cashButton.addEventListener('click', event => {
-    const cashWindow = document.createElement("div");
-    const cashSubmit = document.createElement("button");
-    const subtotalHeader = document.createElement("h2");
-    const taxHeader = document.createElement("h2");
-    const totalHeader = document.createElement("h2");
-    const cashInput = document.createElement("input");
+      closeButton.addEventListener("click", (event) => {
+        displayWindow.replaceChildren();
+      });
 
-    cashWindow.classList.add("cashWindow");
+      cashButton.addEventListener("click", (event) => {
+        const cashWindow = document.createElement("div");
+        const cashSubmit = document.createElement("button");
+        const subtotalHeader = document.createElement("h2");
+        const taxHeader = document.createElement("h2");
+        const totalHeader = document.createElement("h2");
+        const cashInput = document.createElement("input");
 
-    subtotalHeader.innerText = "Subtotal:";
+        cashWindow.classList.add("cashWindow");
 
-    taxHeader.innerText = "Tax:";
+        subtotalHeader.innerText = "Subtotal:";
 
-    totalHeader.innerText = "Total:";
+        taxHeader.innerText = "Tax:";
 
-    cashInput.placeholder = "Enter Credits";
-    cashInput.classList.add("cashInput");
+        totalHeader.innerText = "Total:";
 
-    cashSubmit.classList.add("viewProductButton");
-    cashSubmit.innerText = "Submit";
+        cashInput.placeholder = "Enter Credits";
+        cashInput.classList.add("cashInput");
 
-    checkoutWindow.style.display = "none";
-    document.body.append(cashWindow);
-    cashWindow.append(subtotalHeader);
-    cashWindow.append(taxHeader);
-    cashWindow.append(totalHeader);
-    cashWindow.append(cashInput);
-    cashWindow.append(cashSubmit);
-  })
+        cashSubmit.classList.add("viewProductButton");
+        cashSubmit.innerText = "Submit";
 
-  cardButton.addEventListener('click', event => {
-    const cardWindow = document.createElement("div");
-    const cardSubmit = document.createElement("button");
-    const cardNumber = document.createElement("input");
-    const cardExp = document.createElement("input");
-    const cardCVV = document.createElement("input");
+        checkoutWindow.style.display = "none";
+        displayWindow.append(cashWindow);
+        cashWindow.append(backButton);
+        cashWindow.append(subtotalHeader);
+        cashWindow.append(taxHeader);
+        cashWindow.append(totalHeader);
+        cashWindow.append(cashInput);
+        cashWindow.append(cashSubmit);
 
-    cardWindow.classList.add("cashWindow");
+        backButton.addEventListener("click", (event) => {
+          checkoutWindow.style.display = "flex";
+          cashWindow.style.display = "none";
+        });
+      });
 
-    cardNumber.classList.add("cardNumber");
-    cardNumber.placeholder = "XXXX XXXX XXXX XXXX";
+      cardButton.addEventListener("click", (event) => {
+        const cardWindow = document.createElement("div");
+        const cardSubmit = document.createElement("button");
+        const cardNumber = document.createElement("input");
+        const cardExp = document.createElement("input");
+        const cardCVV = document.createElement("input");
 
-    cardExp.classList.add("cardExpiration");
-    cardExp.placeholder = "MM / YY";
+        cardWindow.classList.add("cashWindow");
 
-    cardCVV.classList.add("cardCVV");
-    cardCVV.placeholder = "CVV";
+        cardNumber.classList.add("cardNumber");
+        cardNumber.placeholder = "XXXX XXXX XXXX XXXX";
 
-    cardSubmit.classList.add("viewProductButton");
-    cardSubmit.innerText = "Submit";
+        cardExp.classList.add("cardExpiration");
+        cardExp.placeholder = "MM / YY";
 
-    checkoutWindow.style.display = "none";
-    document.body.append(cardWindow);
-    cardWindow.append(cardNumber);
-    cardWindow.append(cardExp);
-    cardWindow.append(cardCVV);
-    cardWindow.append(cardSubmit);
-  })
+        cardCVV.classList.add("cardCVV");
+        cardCVV.placeholder = "CVV";
 
-  cashSubmit.addEventListener('click', event => {
-    const receiptWindow = document.createElement("div");
+        cardSubmit.classList.add("viewProductButton");
+        cardSubmit.innerText = "Submit";
 
-    receiptWindow.classList.add("receiptWindow");
+        checkoutWindow.style.display = "none";
+        document.body.append(cardWindow);
+        cardWindow.append(backButton);
+        cardWindow.append(cardNumber);
+        cardWindow.append(cardExp);
+        cardWindow.append(cardCVV);
+        cardWindow.append(cardSubmit);
 
-    document.body.append(receiptWindow);
-    cashWindow.style.display = "none";
-  })
+        backButton.addEventListener("click", (event) => {
+          checkoutWindow.style.display = "flex";
+          cardWindow.style.display = "none";
+        });
+      });
 
-  cardSubmit.addEventListener('click', event => {
-    const receiptWindow = document.createElement("div");
+      cashSubmit.addEventListener("click", (event) => {
+        const receiptWindow = document.createElement("div");
 
-    receiptWindow.classList.add("receiptWindow");
+        receiptWindow.classList.add("receiptWindow");
 
-    document.body.append(receiptWindow);
-    cardWindow.style.display = "none";
-  })
+        document.body.append(receiptWindow);
+        cashWindow.style.display = "none";
+      });
 
+      cardSubmit.addEventListener("click", (event) => {
+        const receiptWindow = document.createElement("div");
+
+        receiptWindow.classList.add("receiptWindow");
+
+        document.body.append(receiptWindow);
+        cardWindow.style.display = "none";
+      });
     });
-    
 })();

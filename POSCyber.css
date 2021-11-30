@@ -3,7 +3,11 @@
   padding: 0;
   margin: 0;
 }
-
+.closeButton{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
 .productWindow{
   display: flex;
   flex-direction: column;
@@ -225,6 +229,12 @@ footer {
 }
 
 @media screen and (min-width: 768px) {
+
+.closeButton{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
 
 h1 {
   font-size: 3rem;
