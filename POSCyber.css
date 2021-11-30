@@ -3,12 +3,15 @@
   padding: 0;
   margin: 0;
 }
-.closeButton{
+.closeButton {
   position: absolute;
-  right: 10px;
-  top: 10px;
+  right: 5px;
+  top: 5px;
+  padding: 2px;
+  background-color: #fdff00;
+  border: 5px solid #000000;
 }
-.productWindow{
+.productWindow {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,7 +20,7 @@
   height: 500px;
   width: 500px;
   color: #000000;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border: 5px solid #000000;
   top: 30%;
   right: 10%;
@@ -33,7 +36,7 @@
   height: 500px;
   width: 500px;
   color: #000000;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border: 5px solid #000000;
   top: 30%;
   right: 10%;
@@ -44,10 +47,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #FFFFFF;
+  color: #ffffff;
   background-color: #ff00e9;
   font-size: 3rem;
-  margin: 10px;
+  margin-top: 45px;
   width: 490px;
   height: 50px;
 }
@@ -56,7 +59,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #FFFFFF;
+  color: #ffffff;
   background-color: #ff00e9;
   font-size: 3rem;
   margin: 10px;
@@ -69,7 +72,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  color: #FFFFFF;
+  color: #ffffff;
   background-color: #ff00e9;
   font-size: 3rem;
   margin: 10px;
@@ -86,7 +89,7 @@
   height: 500px;
   width: 500px;
   color: #000000;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border: 5px solid #000000;
   top: 30%;
   right: 10%;
@@ -106,7 +109,7 @@
   height: 500px;
   width: 500px;
   color: #000000;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border: 5px solid #000000;
   top: 30%;
   right: 10%;
@@ -133,7 +136,7 @@
   height: 500px;
   width: 500px;
   color: #000000;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border: 5px solid #000000;
   top: 30%;
   right: 10%;
@@ -214,6 +217,7 @@ h1 {
   font-size: 1rem;
   width: 200px;
   height: 50px;
+  align-self: center;
 }
 
 button:hover {
@@ -227,136 +231,154 @@ footer {
   margin-top: 50px;
   padding: 20px;
 }
+button {
+  padding: 5px;
+  background-color: #fdff00;
+  font-size: 1rem;
+  align-self: flex-start;
+  border: 5px solid #000000;
+}
 
 @media screen and (min-width: 768px) {
+  .closeButton {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
 
-.closeButton{
-  position: absolute;
-  right: 10px;
-  top: 10px;
-}
+  h1 {
+    font-size: 3rem;
+  }
 
-h1 {
-  font-size: 3rem;
-}
+  .productRow1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
 
-.productRow1 {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
+  .productRow2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
 
-.productRow2 {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
+  .productRow3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
 
-.productRow3 {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
+  .productRow4 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
 
-.productRow4 {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
+  .productWindow {
+    align-items: flex-end;
+    position: fixed;
+    height: 300px;
+    width: 700px;
+    color: #000000;
+    background-color: #ffffff;
+    border: 5px solid #000000;
+    padding: 50px;
+    top: 25%;
+    right: 30%;
+    bottom: 50%;
+  }
 
-.productWindow{
-  align-items: flex-end;
-  position: fixed;
-  height: 300px;
-  width: 700px;
-  color: #000000;
-  background-color: #FFFFFF;
-  border: 5px solid #000000;
-  padding: 50px;
-  top: 25%;
-  right: 30%;
-  bottom: 50%;
-}
+  .checkoutWindow {
+    flex-direction: row;
+    justify-content: space-evenly;
+    position: fixed;
+    height: 600px;
+    width: 1200px;
+    color: #000000;
+    background-color: #ffffff;
+    border: 5px solid #000000;
+    top: 25%;
+    right: 18%;
+    bottom: 50%;
+  }
 
-.checkoutWindow {
-  flex-direction: row;
-  justify-content: space-evenly;
-  position: fixed;
-  height: 600px;
-  width: 1200px;
-  color: #000000;
-  background-color: #FFFFFF;
-  border: 5px solid #000000;
-  top: 25%;
-  right: 18%;
-  bottom: 50%;
-}
+  .cartList {
+    align-self: flex-start;
+    color: #ffffff;
+    background-color: #ff00e9;
+    margin-top: 45px;
+    width: 490px;
+    height: 50px;
+  }
 
-.cartList {
-  align-self: flex-start;
-  color: #FFFFFF;
-  background-color: #ff00e9;
-  margin-top: 10px;
-  width: 490px;
-  height: 50px;
-}
+  .orderSummary {
+    transform: translateX(290px);
+    align-self: flex-start;
+    color: #ffffff;
+    background-color: #ff00e9;
+    font-size: 3rem;
+    margin-top: 45px;
+    width: 490px;
+    height: 50px;
+  }
 
-.orderSummary {
-  transform: translateX(290px);
-  align-self: flex-start;
-  color: #FFFFFF;
-  background-color: #ff00e9;
-  font-size: 3rem;
-  margin: 10px;
-  width: 490px;
-  height: 50px;
-}
+  .paymentOptions {
+    flex-direction: column;
+    align-self: flex-end;
+    color: #ffffff;
+    background-color: #ff00e9;
+    font-size: 2rem;
+    margin: 10px;
+    width: 300px;
+    height: 200px;
+  }
 
-.paymentOptions {
-  flex-direction: column;
-  align-self: flex-end;
-  color: #FFFFFF;
-  background-color: #ff00e9;
-  font-size: 2rem;
-  margin: 10px;
-  width: 300px;
-  height: 200px;
-}
+  .cashWindow {
+    position: fixed;
+    height: 500px;
+    width: 500px;
+    color: #000000;
+    background-color: #ffffff;
+    border: 5px solid #000000;
+    top: 30%;
+    right: 36%;
+    bottom: 50%;
+  }
 
-.cashWindow {
-  position: fixed;
-  height: 500px;
-  width: 500px;
-  color: #000000;
-  background-color: #FFFFFF;
-  border: 5px solid #000000;
-  top: 30%;
-  right: 36%;
-  bottom: 50%;
-}
+  .cardWindow {
+    position: fixed;
+    height: 500px;
+    width: 500px;
+    color: #000000;
+    background-color: #ffffff;
+    border: 5px solid #000000;
+    top: 30%;
+    right: 36%;
+    bottom: 50%;
+  }
 
-.cardWindow {
-  position: fixed;
-  height: 500px;
-  width: 500px;
-  color: #000000;
-  background-color: #FFFFFF;
-  border: 5px solid #000000;
-  top: 30%;
-  right: 36%;
-  bottom: 50%;
-}
-
-.receiptWindow {
-  position: fixed;
-  height: 500px;
-  width: 500px;
-  color: #000000;
-  background-color: #FFFFFF;
-  border: 5px solid #000000;
-  top: 30%;
-  right: 36%;
-  bottom: 50%;
-}
-
+  .receiptWindow {
+    position: fixed;
+    height: 500px;
+    width: 500px;
+    color: #000000;
+    background-color: #ffffff;
+    border: 5px solid #000000;
+    top: 30%;
+    right: 36%;
+    bottom: 50%;
+  }
+  button {
+    padding: 5px;
+    background-color: #fdff00;
+    font-size: 1rem;
+    align-self: flex-start;
+    border: 5px solid #000000;
+  }
+  .closeButton {
+    position: absolute;
+    right: 12px;
+    top: 10px;
+    z-index: 1;
+  }
 }
