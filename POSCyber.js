@@ -1,172 +1,356 @@
 (function () {
+  //selecting for elements in html page
   const viewProductButtons = document.querySelectorAll(".viewProductButton");
   const displayWindow = document.querySelector(".displayWindow");
   const closeButton = document.createElement("button");
   const backButton = document.createElement("button");
 
+  //add class to closeButton, and placeholder innerText
   closeButton.classList.add("closeButton");
   closeButton.innerText = "X";
   backButton.innerText = "<-";
 
+  //Array of objects with each product's info
+  const product = [
+    {
+      name: "Cortical Stack",
+      image: "_assets/main/cortical-stack-main.png",
+      description: "CHANGE ME PLEASE",
+      options: [
+        {
+          nameOfOption: "Personality + Memory Backup",
+          price: 6000,
+        },
+        {
+          nameOfOption: "Personality Backup",
+          price: 3000,
+        },
+        {
+          nameOfOption: "Memory Backup",
+          price: 3000,
+        },
+      ],
+    },
+    {
+      name: "Stealth Field",
+      image: "_assets/main/stealth-field-main.png",
+      description: "CHANGE ME PLEASE",
+      options: [
+        {
+          nameOfOption: "20%",
+          price: 2000,
+        },
+        {
+          nameOfOption: "50%",
+          price: 3000,
+        },
+        {
+          nameOfOption: "100%",
+          price: 4000,
+        },
+      ],
+    },
+    {
+      name: "Optics",
+      image: "_assets/main/optics-main.png",
+      description: "CHANGE ME PLEASE",
+      options: [
+        {
+          nameOfOption: "Thermal",
+          price: 2500,
+        },
+        {
+          nameOfOption: "Night Vision",
+          price: 3500,
+        },
+        {
+          nameOfOption: "X-Ray",
+          price: 4500,
+        },
+      ],
+    },
+    {
+      name: "Neuro",
+      image: "_assets/main/neuro-main.png",
+      description: "CHANGE ME PLEASE",
+      options: [
+        {
+          nameOfOption: "Memory Expansion",
+          price: 2000,
+        },
+        {
+          nameOfOption: "Focus Assist",
+          price: 3000,
+        },
+        {
+          nameOfOption: "Comprehension Boost",
+          price: 3500,
+        },
+      ],
+    },
+    {
+      name: "Dermal",
+      image: "_assets/main/dermal-main.png",
+      description: "CHANGE ME PLEASE",
+      options: [
+        {
+          nameOfOption: "Bleed Stopper",
+          price: 3000,
+        },
+        {
+          nameOfOption: "Cell Regeneration",
+          price: 4000,
+        },
+        {
+          nameOfOption: "Fireproof Coating",
+          price: 4500,
+        },
+      ],
+    },
+    {
+      name: "Skeletal",
+      image: "_assets/main/skeletal-main.png",
+      description: "CHANGE ME PLEASE",
+      options: [
+        {
+          nameOfOption: "Auto Joint Lubrication",
+          price: 3500,
+        },
+        {
+          nameOfOption: "Fracture Repair",
+          price: 4000,
+        },
+        {
+          nameOfOption: "Adamantium Bones",
+          price: 4500,
+        },
+      ],
+    },
+    {
+      name: "Immune System",
+      image: "_assets/main/immune-main.png",
+      description: "CHANGE ME PLEASE",
+      options: [
+        {
+          nameOfOption: "Detoxifier",
+          price: 3000,
+        },
+        {
+          nameOfOption: "Metabolic Boost",
+          price: 3500,
+        },
+        {
+          nameOfOption: "Anti-Virus",
+          price: 4000,
+        },
+      ],
+    },
+    {
+      name: "Nervous System",
+      image: "_assets/main/nervous-main.png",
+      description: "CHANGE ME PLEASE",
+      options: [
+        {
+          nameOfOption: "Pain Inhibitor",
+          price: 3000,
+        },
+        {
+          nameOfOption: "Reflex Tuner",
+          price: 4000,
+        },
+        {
+          nameOfOption: "Senses Enhancer",
+          price: 4500,
+        },
+      ],
+    },
+    {
+      name: "Respiratory System",
+      image: "_assets/main/respiratory-main.png",
+      description: "CHANGE ME PLEASE",
+      options: [
+        {
+          nameOfOption: "Bionic Lungs",
+          price: 3500,
+        },
+        {
+          nameOfOption: "Auto-Inhaler",
+          price: 4000,
+        },
+        {
+          nameOfOption: "Oxygen Calibrator",
+          price: 4500,
+        },
+      ],
+    },
+    {
+      name: "Circulatory System",
+      image: "_assets/main/circulatory-main.png",
+      description: "CHANGE ME PLEASE",
+      options: [
+        {
+          nameOfOption: "Adrenaline Boost",
+          price: 3500,
+        },
+        {
+          nameOfOption: "Arterial Cleanser",
+          price: 4000,
+        },
+        {
+          nameOfOption: "Pulse Regulator",
+          price: 4500,
+        },
+      ],
+    },
+    {
+      name: "Arms",
+      image: "_assets/main/arms-main.png",
+      description: "CHANGE ME PLEASE",
+      options: [
+        {
+          nameOfOption: "Strength Boost",
+          price: 5000,
+        },
+        {
+          nameOfOption: "Fatigue Reducer",
+          price: 5500,
+        },
+        {
+          nameOfOption: "Fortified Elbows",
+          price: 6000,
+        },
+      ],
+    },
+    {
+      name: "Legs",
+      image: "_assets/main/legs-main.png",
+      description: "CHANGE ME PLEASE",
+      options: [
+        {
+          nameOfOption: "Fatigue Reducer",
+          price: 5000,
+        },
+        {
+          nameOfOption: "Speed Boost",
+          price: 5500,
+        },
+        {
+          nameOfOption: "Reinforced Tendons",
+          price: 6000,
+        },
+      ],
+    },
+  ];
+
+  //loop to select product window
   for (let button of viewProductButtons) {
+    //Event that calls displayProduct window of product clicked
     button.addEventListener("click", (event) => {
-      const productWindow = document.createElement("div");
-      const addtoCartButton = document.createElement("button");
-      const productName = document.createElement("h2");
-      const productDescription = document.createElement("p");
-      const optionSelector = document.createElement("select");
-      const quantityInput = document.createElement("input");
-
-      productWindow.classList.add("productWindow");
-
-      addtoCartButton.classList.add("viewProductButton");
-      addtoCartButton.innerText = "Add to Cart";
-
-      productName.innerText = "Product Name";
-      productDescription.innerText = "Lorem ipsum dolor sit amet.";
-
-      quantityInput.type = "number";
-
-      displayWindow.append(productWindow);
-      productWindow.append(closeButton);
-      productWindow.append(productName);
-      productWindow.append(productDescription);
-      productWindow.append(optionSelector);
-      productWindow.append(quantityInput);
-      productWindow.append(addtoCartButton);
-
+      //Event to remove all children from parent displayWindow
       closeButton.addEventListener("click", (event) => {
         displayWindow.replaceChildren();
       });
 
-      const product = [{
-        name: "Cortical Stack",
-        image: "_assets/main/cortical-stack-main.png",
-        description: "CHANGE ME PLEASE",
-        options: [["Personality + Memory Backup", 6000], ["Personality Backup", 3000], ["Memory Backup", 3000]]
-      }, 
-      {
-        name: "Stealth Field",
-        image: "_assets/main/stealth-field-main.png",
-        description: "CHANGE ME PLEASE",
-        options: [["20%", 2000], ["50%", 3000], ["100%", 4000]] 
-      },
-      {
-        name: "Optics",
-        image: "_assets/main/optics-main.png",
-        description: "CHANGE ME PLEASE",
-        options: [["Thermal", 2500], ["Night Vision", 3500], ["X-Ray", 4500]]
-      },
-      {
-       name: "Neuro",
-       image: "_assets/main/neuro-main.png",
-       description: "CHANGE ME PLEASE",
-       options: [["Memory Expansion", 2000], ["Focus Assist", 3000], ["Comprehension Boost", 3500]]
-      },
-      {
-        name: "Dermal",
-        image: "_assets/main/dermal-main.png",
-        description: "CHANGE ME PLEASE",
-        options: [["Bleed Stopper", 3000], ["Cell Regeneration", 4000], ["Fireproof Coating", 4500]]
-      },
-      {
-        name: "Skeletal",
-        image: "_assets/main/skeletal-main.png",
-        description: "CHANGE ME PLEASE",
-        options: [["Auto Joint Lubrication", 3500], ["Fracture Repair", 4000], ["Adamantium Bones", 4500]]
-      },
-      {
-        name: "Immune System",
-        image: "_assets/main/immune-main.png",
-        description: "CHANGE ME PLEASE",
-        options: [["Detoxifier", 3000], ["Metabolic Boost", 3500], ["Anti-Virus", 4000]] 
-      },
-      {
-        name: "Nervous System",
-        image: "_assets/main/nervous-main.png",
-        description: "CHANGE ME PLEASE",
-        options: [["Pain Inhibitor", 3000], ["Reflex Tuner", 4000], ["Senses Enhancer", 4500]] 
-      },
-      {
-        name: "Respiratory System",
-        image: "_assets/main/respiratory-main.png",
-        description: "CHANGE ME PLEASE",
-        options: [["Bionic Lungs", 3500], ["Auto-Inhaler", 4000], ["Oxygen Calibrator", 4500]]
-      },
-      {
-        name: "Circulatory System",
-        image: "_assets/main/circulatory-main.png",
-        description: "CHANGE ME PLEASE",
-        options: [["Adrenaline Boost", 3500], ["Arterial Cleanser", 4000], ["Pulse Regulator", 4500]] 
-      },
-      {
-        name: "Arms",
-        image: "_assets/main/arms-main.png",
-        description: "CHANGE ME PLEASE",
-        options: [["Strength Boost", 5000], ["Fatigue Reducer", 5500], ["Fortified Elbows", 6000]]
-      },
-      {
-        name: "Legs",
-        image: "_assets/main/legs-main.png",
-        description: "CHANGE ME PLEASE",
-        options: [["Fatigue Reducer", 5000], ["Speed Boost", 5500], ["Reinforced Tendons", 6000]]
-      }
-      ];
-
+      //if statement to check what the click event's target is then call displayProduct for object in corresponding array
       if (event.target.id === "Cortical Stack") {
-        displayProduct("Cortical Stack", "_assets/main/cortical-stack-main.png", "THIS WAS CHANGED HOORAY", corticalStackArray, corticalStackPrices);
+        displayProduct(product[0]);
       } else if (event.target.id === "Stealth Field") {
-
+        displayProduct(product[1]);
       } else if (event.target.id === "Optics") {
-
+        displayProduct(product[2]);
       } else if (event.target.id === "Neuro") {
-
+        displayProduct(product[3]);
       } else if (event.target.id === "Dermal") {
-
+        displayProduct(product[4]);
       } else if (event.target.id === "Skeletal") {
-
+        displayProduct(product[5]);
       } else if (event.target.id === "Immune System") {
-
+        displayProduct(product[6]);
       } else if (event.target.id === "Nervous System") {
-
+        displayProduct(product[7]);
       } else if (event.target.id === "Respiratory System") {
-
+        displayProduct(product[8]);
       } else if (event.target.id === "Circulatory System") {
-
+        displayProduct(product[9]);
       } else if (event.target.id === "Arms") {
-
+        displayProduct(product[10]);
       } else if (event.target.id === "Legs") {
-
-      };
-      console.log(event.target.id);
+        displayProduct(product[11]);
+      }
     });
   }
 
-  function displayProduct(name, image, description, options, prices) {
-      const productWindow = document.createElement("div");
-      const addtoCartButton = document.createElement("button");
-      const productName = document.createElement("h2");
-      const productDescription = document.createElement("p");
-      const optionSelector = document.createElement("select");
-      const quantityInput = document.createElement("input");
+  //Function that creates and appends elements to displayWindow
+  function displayProduct(productObject) {
+    //creating elements to be added to displayWindow
+    const productWindow = document.createElement("div");
+    const addtoCartButton = document.createElement("button");
+    const productName = document.createElement("h2");
+    const productDescription = document.createElement("p");
+    const optionSelector = document.createElement("select");
+    const quantityInput = document.createElement("input");
+    const productImage = document.createElement("img");
+    const productPrice = document.createElement("div");
+    const option0 = document.createElement("option");
+    const option1 = document.createElement("option");
+    const option2 = document.createElement("option");
 
-      productWindow.classList.add("productWindow");
+    //give productWindow and productButton elements CSS classes and text
+    productWindow.classList.add("productWindow");
+    addtoCartButton.classList.add("viewProductButton");
+    addtoCartButton.innerText = "Add to Cart";
 
-      addtoCartButton.classList.add("viewProductButton");
-      addtoCartButton.innerText = "Add to Cart";
+    //give product name and description to corresponding elements
+    productName.innerText = productObject.name;
+    productDescription.innerText = productObject.description;
 
-      productName.innerText = "Product Name";
-      productDescription.innerText = "Lorem ipsum dolor sit amet.";
+    //adding image to productImage element (placeholder sizing)
+    productImage.src = productObject.image;
+    productImage.style.height = "40px";
+    productImage.style.width = "40px";
 
-      quantityInput.type = "number";
+    //Set up options in select menu with proper name and price
+    option0.innerText = productObject.options[0].nameOfOption;
+    option0.value = productObject.options[0].price;
+    option1.innerText = productObject.options[1].nameOfOption;
+    option1.value = productObject.options[1].price;
+    option2.innerText = productObject.options[2].nameOfOption;
+    option2.value = productObject.options[2].price;
 
-      displayWindow.append(productWindow);
-      productWindow.append(closeButton);
-      productWindow.append(productName);
-      productWindow.append(productDescription);
-      productWindow.append(optionSelector);
-      productWindow.append(quantityInput);
-      productWindow.append(addtoCartButton);
+    //set price display to first option
+    productPrice.innerText = productObject.options[0].price;
+
+    //set up for quantity window
+    quantityInput.type = "number";
+    quantityInput.min = 1;
+    quantityInput.valueAsNumber = 1;
+
+    //append and add all elements to windows
+    displayWindow.append(productWindow);
+    productWindow.append(productImage);
+    productWindow.append(closeButton);
+    productWindow.append(productName);
+    productWindow.append(productDescription);
+    productWindow.append(optionSelector);
+    productWindow.append(productPrice);
+    productWindow.append(quantityInput);
+    productWindow.append(addtoCartButton);
+    optionSelector.add(option0);
+    optionSelector.add(option1);
+    optionSelector.add(option2);
+
+    //changes productPrice to the price of option and resets quantity to 1
+    optionSelector.onchange = function () {
+      productPrice.innerText = optionSelector.value;
+      quantityInput.valueAsNumber = 1;
+    };
+
+    //When quantityInput is changed multiplies and displays price * quantity
+    quantityInput.addEventListener("change", (event) => {
+      productPrice.innerText = `${
+        quantityInput.valueAsNumber * parseInt(optionSelector.value)
+      }`;
+    });
   }
 
   document
