@@ -15,7 +15,7 @@
     {
       name: "Cortical Stack",
       image: "_assets/main/cortical-stack-main.png",
-      description: "CHANGE ME PLEASE",
+      description: "Your consciousness is downloaded to a specialized chip inserted at the base of the neck. Upon death, this data may be uploaded to an entirely new body. Virtual immortality.",
       options: [
         {
           nameOfOption: "Personality + Memory Backup",
@@ -34,7 +34,7 @@
     {
       name: "Stealth Field",
       image: "_assets/main/stealth-field-main.png",
-      description: "CHANGE ME PLEASE",
+      description: "Minor concealment to total invisibility. Please note that ANS Cybernetics waives all legal responsibility for the criminal use of stealth fields.",
       options: [
         {
           nameOfOption: "20%",
@@ -53,7 +53,7 @@
     {
       name: "Optics",
       image: "_assets/main/optics-main.png",
-      description: "CHANGE ME PLEASE",
+      description: "See the world through many different lenses. CAUTION: Only ONE optic should be active at a time. Failure may result in severe headaches and/or blindness.",
       options: [
         {
           nameOfOption: "Thermal",
@@ -72,7 +72,7 @@
     {
       name: "Neuro",
       image: "_assets/main/neuro-main.png",
-      description: "CHANGE ME PLEASE",
+      description: "Expand and improve cognitive function.",
       options: [
         {
           nameOfOption: "Memory Expansion",
@@ -91,7 +91,7 @@
     {
       name: "Dermal",
       image: "_assets/main/dermal-main.png",
-      description: "CHANGE ME PLEASE",
+      description: "Strengthen physical resistances to external hazards.",
       options: [
         {
           nameOfOption: "Bleed Stopper",
@@ -110,7 +110,7 @@
     {
       name: "Skeletal",
       image: "_assets/main/skeletal-main.png",
-      description: "CHANGE ME PLEASE",
+      description: "Structural reinforcements for limitless mobility.",
       options: [
         {
           nameOfOption: "Auto Joint Lubrication",
@@ -129,7 +129,7 @@
     {
       name: "Immune System",
       image: "_assets/main/immune-main.png",
-      description: "CHANGE ME PLEASE",
+      description: "Complete protection from the inside out.",
       options: [
         {
           nameOfOption: "Detoxifier",
@@ -148,7 +148,7 @@
     {
       name: "Nervous System",
       image: "_assets/main/nervous-main.png",
-      description: "CHANGE ME PLEASE",
+      description: "Awareness redefined and recalibrated.",
       options: [
         {
           nameOfOption: "Pain Inhibitor",
@@ -167,7 +167,7 @@
     {
       name: "Respiratory System",
       image: "_assets/main/respiratory-main.png",
-      description: "CHANGE ME PLEASE",
+      description: "Breathe easier with calibrated, measured function.",
       options: [
         {
           nameOfOption: "Bionic Lungs",
@@ -186,7 +186,7 @@
     {
       name: "Circulatory System",
       image: "_assets/main/circulatory-main.png",
-      description: "CHANGE ME PLEASE",
+      description: "Precision control of your most vital force.",
       options: [
         {
           nameOfOption: "Adrenaline Boost",
@@ -205,7 +205,7 @@
     {
       name: "Arms",
       image: "_assets/main/arms-main.png",
-      description: "CHANGE ME PLEASE",
+      description: "Enhance physical capability and dexterity.",
       options: [
         {
           nameOfOption: "Strength Boost",
@@ -224,7 +224,7 @@
     {
       name: "Legs",
       image: "_assets/main/legs-main.png",
-      description: "CHANGE ME PLEASE",
+      description: "Increased power and longevity for complete mobile freedom.",
       options: [
         {
           nameOfOption: "Fatigue Reducer",
