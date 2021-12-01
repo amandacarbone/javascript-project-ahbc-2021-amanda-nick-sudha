@@ -297,6 +297,8 @@
     const option0 = document.createElement("option");
     const option1 = document.createElement("option");
     const option2 = document.createElement("option");
+    const optionLabel = document.createElement("label");
+    const quantityLabel = document.createElement("label");
 
     //give productWindow and productButton elements CSS classes and text
     productWindow.classList.add("productWindow");
@@ -320,6 +322,12 @@
     option2.innerText = productObject.options[2].nameOfOption;
     option2.value = productObject.options[2].price;
 
+    //Label for option dropdown
+    optionLabel.innerText = "Options:";
+
+    //Label for quantity
+    quantityLabel.innerText = "Quantity:";
+
     //set price display to first option
     productPrice.innerText = `Price: CR${productObject.options[0].price}`;
 
@@ -334,8 +342,10 @@
     productWindow.append(closeButton);
     productWindow.append(productName);
     productWindow.append(productDescription);
+    productWindow.append(optionLabel);
     productWindow.append(optionSelector);
     productWindow.append(productPrice);
+    productWindow.append(quantityLabel);
     productWindow.append(quantityInput);
     productWindow.append(addtoCartButton);
     optionSelector.add(option0);
@@ -402,6 +412,7 @@
         const taxHeader = document.createElement("h2");
         const totalHeader = document.createElement("h2");
         const cashInput = document.createElement("input");
+        const creditInputLabel = document.createElement("label");
 
         cashWindow.classList.add("cashWindow");
 
@@ -413,6 +424,7 @@
 
         cashInput.placeholder = "Enter Credits";
         cashInput.classList.add("cashInput");
+        creditInputLabel.innerText = "Enter Credits:";
 
         cashSubmit.classList.add("viewProductButton");
         cashSubmit.innerText = "Submit";
@@ -425,6 +437,7 @@
         cashWindow.append(subtotalHeader);
         cashWindow.append(taxHeader);
         cashWindow.append(totalHeader);
+        cashWindow.append(creditInputLabel);
         cashWindow.append(cashInput);
         cashWindow.append(cashSubmit);
 
@@ -440,17 +453,23 @@
         const cardNumber = document.createElement("input");
         const cardExp = document.createElement("input");
         const cardCVV = document.createElement("input");
+        const cardNumberLabel = document.createElement("label");
+        const expdateLabel = document.createElement("label");
+        const cvvLabel = document.createElement("label");
 
         cardWindow.classList.add("cashWindow");
 
         cardNumber.classList.add("cardNumber");
         cardNumber.placeholder = "XXXX XXXX XXXX XXXX";
+        cardNumberLabel.innerText = "Card Number:";
 
         cardExp.classList.add("cardExpiration");
         cardExp.placeholder = "MM / YY";
+        expdateLabel.innerText = "Expiration Date (MM/YY):";
 
         cardCVV.classList.add("cardCVV");
         cardCVV.placeholder = "CVV";
+        cvvLabel.innerText = "CVV:";
 
         cardSubmit.classList.add("viewProductButton");
         cardSubmit.innerText = "Submit";
@@ -458,8 +477,11 @@
         checkoutWindow.style.display = "none";
         document.body.append(cardWindow);
         cardWindow.append(backButton);
+        cardWindow.append(cardNumberLabel);
         cardWindow.append(cardNumber);
+        cardWindow.append(expdateLabel);
         cardWindow.append(cardExp);
+        cardWindow.append(cvvLabel);
         cardWindow.append(cardCVV);
         cardWindow.append(cardSubmit);
 
