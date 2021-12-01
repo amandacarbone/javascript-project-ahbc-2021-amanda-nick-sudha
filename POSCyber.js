@@ -321,6 +321,7 @@
     option1.value = productObject.options[1].price;
     option2.innerText = productObject.options[2].nameOfOption;
     option2.value = productObject.options[2].price;
+    optionSelector.style.marginBottom = "10px";
 
     //Label for option dropdown
     optionLabel.innerText = "Options:";
@@ -330,11 +331,13 @@
 
     //set price display to first option
     productPrice.innerText = `Price: CR${productObject.options[0].price}`;
+    productPrice.style.marginBottom = "10px";
 
     //set up for quantity window
     quantityInput.type = "number";
     quantityInput.min = 1;
     quantityInput.valueAsNumber = 1;
+    quantityInput.style.marginBottom = "10px";
 
     //append and add all elements to windows
     displayWindow.append(productWindow);
