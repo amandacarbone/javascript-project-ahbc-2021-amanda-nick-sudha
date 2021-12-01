@@ -3,6 +3,17 @@
   padding: 0;
   margin: 0;
 }
+.productRow1{
+  margin-top: 130px;
+}
+.displayWindow{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  height: 100vh;
+  
+}
 .closeButton {
   position: absolute;
   right: 5px;
@@ -154,6 +165,9 @@ video {
 }
 
 .viewport-header {
+  position:fixed;
+  top: 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   background-color: #ff00e9;
@@ -170,7 +184,7 @@ video {
   border-radius: 50%;
   height: 95px;
   width: 100px;
-  margin: 5px;
+  margin: 10px;
 }
 
 h1 {
@@ -249,11 +263,17 @@ button {
   h1 {
     font-size: 3rem;
   }
-
+  
+  .backButton{
+    position:absolute;
+    top:0;
+    left:0;
+  }
   .productRow1 {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    margin-top: 110px;
   }
 
   .productRow2 {
@@ -283,9 +303,9 @@ button {
     background-color: #ffffff;
     border: 5px solid #000000;
     padding: 50px;
-    top: 25%;
-    right: 30%;
-    bottom: 50%;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .checkoutWindow {
@@ -297,9 +317,9 @@ button {
     color: #000000;
     background-color: #ffffff;
     border: 5px solid #000000;
-    top: 25%;
-    right: 18%;
-    bottom: 50%;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .cartList {
@@ -341,8 +361,8 @@ button {
     background-color: #ffffff;
     border: 5px solid #000000;
     top: 30%;
-    right: 36%;
-    bottom: 50%;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .cardWindow {
@@ -353,8 +373,8 @@ button {
     background-color: #ffffff;
     border: 5px solid #000000;
     top: 30%;
-    right: 36%;
-    bottom: 50%;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .receiptWindow {
@@ -365,8 +385,8 @@ button {
     background-color: #ffffff;
     border: 5px solid #000000;
     top: 30%;
-    right: 36%;
-    bottom: 50%;
+    left: 50%;
+    transform: translateX(-50%);
   }
   button {
     padding: 5px;

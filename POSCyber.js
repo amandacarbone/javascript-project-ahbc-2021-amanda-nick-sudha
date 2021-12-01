@@ -414,6 +414,8 @@
         cashSubmit.classList.add("viewProductButton");
         cashSubmit.innerText = "Submit";
 
+        backButton.classList.add("backButton");
+
         checkoutWindow.style.display = "none";
         displayWindow.append(cashWindow);
         cashWindow.append(backButton);
