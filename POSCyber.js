@@ -357,7 +357,7 @@
 
     //changes productPrice to the price of option and resets quantity to 1
     optionSelector.onchange = function () {
-      productPrice.innerText = `Prince: CR${optionSelector.value}`;
+      productPrice.innerText = `Price: CR${optionSelector.value}`;
       quantityInput.valueAsNumber = 1;
     };
 
