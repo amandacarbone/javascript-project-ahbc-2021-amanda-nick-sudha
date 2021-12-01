@@ -15,7 +15,8 @@
     {
       name: "Cortical Stack",
       image: "_assets/main/cortical-stack-main.png",
-      description: "Your consciousness is downloaded to a specialized chip inserted at the base of the neck. Upon death, this data may be uploaded to an entirely new body. Virtual immortality.",
+      description:
+        "Your consciousness is downloaded to a specialized chip inserted at the base of the neck. Upon death, this data may be uploaded to an entirely new body. Virtual immortality.",
       options: [
         {
           nameOfOption: "Personality + Memory Backup",
@@ -34,7 +35,8 @@
     {
       name: "Stealth Field",
       image: "_assets/main/stealth-field-main.png",
-      description: "Minor concealment to total invisibility. Please note that ANS Cybernetics waives all legal responsibility for the criminal use of stealth fields.",
+      description:
+        "Minor concealment to total invisibility. Please note that ANS Cybernetics waives all legal responsibility for the criminal use of stealth fields.",
       options: [
         {
           nameOfOption: "20%",
@@ -53,7 +55,8 @@
     {
       name: "Optics",
       image: "_assets/main/optics-main.png",
-      description: "See the world through many different lenses. CAUTION: Only ONE optic should be active at a time. Failure may result in severe headaches and/or blindness.",
+      description:
+        "See the world through many different lenses. CAUTION: Only ONE optic should be active at a time. Failure may result in severe headaches and/or blindness.",
       options: [
         {
           nameOfOption: "Thermal",
@@ -318,7 +321,7 @@
     option2.value = productObject.options[2].price;
 
     //set price display to first option
-    productPrice.innerText = productObject.options[0].price;
+    productPrice.innerText = `Price: CR${productObject.options[0].price}`;
 
     //set up for quantity window
     quantityInput.type = "number";
@@ -341,13 +344,13 @@
 
     //changes productPrice to the price of option and resets quantity to 1
     optionSelector.onchange = function () {
-      productPrice.innerText = optionSelector.value;
+      productPrice.innerText = `Prince: CR${optionSelector.value}`;
       quantityInput.valueAsNumber = 1;
     };
 
     //When quantityInput is changed multiplies and displays price * quantity
     quantityInput.addEventListener("change", (event) => {
-      productPrice.innerText = `${
+      productPrice.innerText = `Price: CR${
         quantityInput.valueAsNumber * parseInt(optionSelector.value)
       }`;
     });
