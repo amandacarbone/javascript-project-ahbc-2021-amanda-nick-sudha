@@ -22,6 +22,7 @@
   background-color: #fdff00;
   border: 5px solid #000000;
 }
+
 .productWindow {
   display: flex;
   flex-direction: column;
@@ -36,6 +37,15 @@
   top: 30%;
   right: 10%;
   bottom: 50%;
+}
+
+.productDescription {
+  text-align: center;
+}
+
+.productImage {
+  height: 200px;
+  width: 200px;
 }
 
 .checkoutWindow {
@@ -295,6 +305,7 @@ button {
   }
 
   .productWindow {
+    flex-wrap: wrap;
     align-items: flex-end;
     position: fixed;
     height: 300px;
@@ -306,6 +317,18 @@ button {
     top: 30%;
     left: 50%;
     transform: translateX(-50%);
+  }
+
+  .productImage {
+    flex-basis: 100%;
+    align-self: flex-start;
+    height: 300px;
+    width: 300px;
+  }
+
+  .productDescription {
+    text-align: right;
+    width: 50%;
   }
 
   .checkoutWindow {

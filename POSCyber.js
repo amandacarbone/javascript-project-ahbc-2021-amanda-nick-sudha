@@ -303,11 +303,11 @@
     //give product name and description to corresponding elements
     productName.innerText = productObject.name;
     productDescription.innerText = productObject.description;
+    productDescription.classList.add("productDescription");
 
     //adding image to productImage element (placeholder sizing)
     productImage.src = productObject.image;
-    productImage.style.height = "40px";
-    productImage.style.width = "40px";
+    productImage.classList.add("productImage");
 
     //Set up options in select menu with proper name and price
     option0.innerText = productObject.options[0].nameOfOption;
