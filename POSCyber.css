@@ -72,7 +72,7 @@
   color: #ffffff;
   background-color: #ff00e9;
   font-size: 3rem;
-  margin-top: 45px;
+  margin-top: 0;
   width: 550px;
   height: 50px;
 }
@@ -110,6 +110,7 @@
   background-color: #ff00e9;
   font-size: 3rem;
   margin: 10px;
+  margin-bottom: 0;
   padding: 10px;
   width: 300px;
   height: 200px;
@@ -368,6 +369,7 @@ button {
   
   .shoppingCartTableContainer {
     width: 900px;
+    max-height: 200px;
     overflow-y: scroll;
     overflow-x: hidden;
   }

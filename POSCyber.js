@@ -389,7 +389,7 @@
       }`;
     });
 
-    //Sudha can you add a discription to this function please :)
+    //Sudha can you add a description to this function please :)
     function addToCartClicked(event) {
       var button = event.target;
       addItemToCart(productObject);
@@ -412,7 +412,9 @@
   }
 
   //event listener to open Cart window
-  document.querySelector(".shoppingCartButton").addEventListener("click", (event) => {
+  document
+    .querySelector(".shoppingCartButton")
+    .addEventListener("click", (event) => {
       //creating elements in shopping cart
       const checkoutWindow = document.createElement("div");
       const cartList = document.createElement("div");
