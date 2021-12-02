@@ -412,9 +412,7 @@
   }
 
   //event listener to open Cart window
-  document
-    .querySelector(".shoppingCartButton")
-    .addEventListener("click", (event) => {
+  document.querySelector(".shoppingCartButton").addEventListener("click", (event) => {
       //creating elements in shopping cart
       const checkoutWindow = document.createElement("div");
       const cartList = document.createElement("div");
@@ -424,12 +422,21 @@
       const cardButton = document.createElement("button");
       const shoppingCartTable = document.createElement("table");
 
+      //Holds shoppingCartTable allowing for responsiveness
+      const shoppingCartTableContainer = document.createElement("div");
+
       //adding CSS to checkout window
       checkoutWindow.classList.add("checkoutWindow");
 
       //adding CSS to CartList header
       cartList.classList.add("cartList");
       cartList.innerText = "Cart";
+
+      //adding CSS to shoppingCartTable
+      shoppingCartTable.classList.add("shoppingCartTable");
+
+      //adding CSS to ShoppingCartTableContainer
+      shoppingCartTableContainer.classList.add("shoppingCartTableContainer");
 
       //adding CSS to Order Summary Header
       orderSummary.classList.add("orderSummary");
@@ -452,27 +459,27 @@
 
       //Add header to table row 0
       const shoppingCartImageHeader = document.createElement("th");
-      shoppingCartImageHeader.innerText = "ImageHeader";
+      // shoppingCartImageHeader.innerText = "ImageHeader";
       shoppingCartHeaderRow.append(shoppingCartImageHeader);
 
       //Add header to table row 0
       const shoppingCartProductNameHeader = document.createElement("th");
-      shoppingCartProductNameHeader.innerText = "Product Name";
+      // shoppingCartProductNameHeader.innerText = "Product Name";
       shoppingCartHeaderRow.append(shoppingCartProductNameHeader);
 
       //Add header to table row 0
       const shoppingCartOptionHeader = document.createElement("th");
-      shoppingCartOptionHeader.innerText = "Option";
+      // shoppingCartOptionHeader.innerText = "Option";
       shoppingCartHeaderRow.append(shoppingCartOptionHeader);
 
       //Add header to table row 0
-      const shoppingCartQuantityHeader = document.createElement("th");
-      shoppingCartQuantityHeader.innerText = "Quantity";
-      shoppingCartHeaderRow.append(shoppingCartQuantityHeader);
+      // const shoppingCartQuantityHeader = document.createElement("th");
+      // shoppingCartQuantityHeader.innerText = "Quantity";
+      // shoppingCartHeaderRow.append(shoppingCartQuantityHeader);
 
       //Add header to table row 0
       const shoppingCartPriceHeader = document.createElement("th");
-      shoppingCartPriceHeader.innerText = "Price";
+      // shoppingCartPriceHeader.innerText = "Price";
       shoppingCartHeaderRow.append(shoppingCartPriceHeader);
 
       //Populates table with info from shoppingCartArray
@@ -495,7 +502,8 @@
       displayWindow.append(checkoutWindow);
       checkoutWindow.append(closeButton);
       checkoutWindow.append(cartList);
-      checkoutWindow.append(shoppingCartTable);
+      checkoutWindow.append(shoppingCartTableContainer);
+      shoppingCartTableContainer.append(shoppingCartTable);
       checkoutWindow.append(orderSummary);
       checkoutWindow.append(paymentOptions);
       paymentOptions.append(cashButton);

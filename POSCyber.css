@@ -55,13 +55,13 @@
   align-items: center;
   justify-content: space-between;
   position: fixed;
-  height: 500px;
-  width: 500px;
+  height: 550px;
+  width: 550px;
   color: #000000;
   background-color: #ffffff;
   border: 5px solid #000000;
   top: 30%;
-  right: 10%;
+  right: 5%;
   bottom: 50%;
 }
 
@@ -75,6 +75,18 @@
   margin-top: 45px;
   width: 490px;
   height: 50px;
+}
+
+.shoppingCartTable {
+  table-layout: fixed;
+  width: 500px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.shoppingCartTableContainer {
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .orderSummary {
@@ -337,36 +349,49 @@ button {
   }
 
   .checkoutWindow {
-    flex-direction: row;
+    /* flex-direction: row;
     justify-content: space-evenly;
     position: fixed;
     height: 600px;
-    width: 1200px;
+    width: 900px;
     color: #000000;
     background-color: #ffffff;
     border: 5px solid #000000;
     top: 30%;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 50%; */
+    transform: translateX(-100%);
   }
 
-  .cartList {
+  /* .cartList {
+    transform: translateX(15px);
     align-self: flex-start;
     color: #ffffff;
     background-color: #ff00e9;
-    margin-top: 45px;
-    width: 490px;
+    margin-top: 50px;
+    padding: 10px;
+    width: 1000px;
     height: 50px;
   }
 
+  .shoppingCartTable {
+    width: 500px;
+  }
+
+  .shoppingCartTableContainer {
+    transform: translateX(-300px);
+    height: 200px;
+    width: 5500px;
+  }
+
   .orderSummary {
-    transform: translateX(290px);
+    transform: translateX(230px);
     align-self: flex-start;
     color: #ffffff;
     background-color: #ff00e9;
     font-size: 3rem;
-    margin-top: 45px;
-    width: 490px;
+    margin-top: 50px;
+    padding: 10px;
+    width: 500px;
     height: 50px;
   }
 
@@ -379,7 +404,7 @@ button {
     margin: 10px;
     width: 300px;
     height: 200px;
-  }
+  } */
 
   .cashWindow {
     position: fixed;
