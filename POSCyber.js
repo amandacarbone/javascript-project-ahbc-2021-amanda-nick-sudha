@@ -5,6 +5,9 @@
   const closeButton = document.createElement("button");
   const backButton = document.createElement("button");
 
+  //Array to store what is in shopping cart
+  let shoppingCartArray = [];
+
   //add class to closeButton, and placeholder innerText
   closeButton.classList.add("closeButton");
   closeButton.innerText = "X";
@@ -374,46 +377,88 @@
     });
   }
 
+  //event listener to open Cart window
   document
     .querySelector(".shoppingCartButton")
     .addEventListener("click", (event) => {
+      //creating elements in shopping cart
       const checkoutWindow = document.createElement("div");
       const cartList = document.createElement("div");
       const orderSummary = document.createElement("div");
       const paymentOptions = document.createElement("div");
       const cashButton = document.createElement("button");
       const cardButton = document.createElement("button");
+      const shoppingCartTable = document.createElement("table");
 
+      //adding CSS to checkout window
       checkoutWindow.classList.add("checkoutWindow");
 
+      //adding CSS to CartList header
       cartList.classList.add("cartList");
       cartList.innerText = "Cart";
 
+      //adding CSS to Order Summary Header
       orderSummary.classList.add("orderSummary");
       orderSummary.innerText = "Order Summary";
 
+      //adding CSS to payment options box
       paymentOptions.classList.add("paymentOptions");
       paymentOptions.innerText = "Checkout";
 
+      //adding CSS to cash button
       cashButton.classList.add("viewProductButton");
       cashButton.innerText = "Cash";
 
+      //adding CSS to card button
       cardButton.classList.add("viewProductButton");
       cardButton.innerText = "Card";
 
+      //setting up table in checkout window
+      const shoppingCartHeaderRow = shoppingCartTable.insertRow(0);
+
+      //Add header to table row 0
+      const shoppingCartImageHeader = document.createElement("th");
+      shoppingCartImageHeader.innerText = "ImageHeader";
+      shoppingCartHeaderRow.append(shoppingCartImageHeader);
+
+      //Add header to table row 0
+      const shoppingCartProductNameHeader = document.createElement("th");
+      shoppingCartProductNameHeader.innerText = "Product Name";
+      shoppingCartHeaderRow.append(shoppingCartProductNameHeader);
+
+      //Add header to table row 0
+      const shoppingCartOptionHeader = document.createElement("th");
+      shoppingCartOptionHeader.innerText = "Option";
+      shoppingCartHeaderRow.append(shoppingCartOptionHeader);
+
+      //Add header to table row 0
+      const shoppingCartQuantityHeader = document.createElement("th");
+      shoppingCartQuantityHeader.innerText = "Quantity";
+      shoppingCartHeaderRow.append(shoppingCartQuantityHeader);
+
+      //Add header to table row 0
+      const shoppingCartPriceHeader = document.createElement("th");
+      shoppingCartPriceHeader.innerText = "Price";
+      shoppingCartHeaderRow.append(shoppingCartPriceHeader);
+
+      //append elements to CheckOut Window
       displayWindow.append(checkoutWindow);
       checkoutWindow.append(closeButton);
       checkoutWindow.append(cartList);
+      checkoutWindow.append(shoppingCartTable);
       checkoutWindow.append(orderSummary);
       checkoutWindow.append(paymentOptions);
       paymentOptions.append(cashButton);
       paymentOptions.append(cardButton);
 
+      //Event listener on close button to close checkout window
       closeButton.addEventListener("click", (event) => {
         displayWindow.replaceChildren();
       });
 
+      //Event listener to show cash window
       cashButton.addEventListener("click", (event) => {
+        //creating elements for cash window
         const cashWindow = document.createElement("div");
         const cashSubmit = document.createElement("button");
         const subtotalHeader = document.createElement("h2");
@@ -422,24 +467,30 @@
         const cashInput = document.createElement("input");
         const creditInputLabel = document.createElement("label");
 
+        //Add CSS to cash window
         cashWindow.classList.add("cashWindow");
 
+        //Changing inner text of elements to show
         subtotalHeader.innerText = "Subtotal:";
-
         taxHeader.innerText = "Tax:";
-
         totalHeader.innerText = "Total:";
 
+        //Setting placeholder, CSS, and innerText for enter credit input
         cashInput.placeholder = "Enter Credits";
         cashInput.classList.add("cashInput");
         creditInputLabel.innerText = "Enter Credits:";
 
+        //Adding CSS and innertext for Submit button
         cashSubmit.classList.add("viewProductButton");
         cashSubmit.innerText = "Submit";
 
+        //Adding CSS to back button
         backButton.classList.add("backButton");
 
+        //hides checkout window when cash button is clicked
         checkoutWindow.style.display = "none";
+
+        //appends cashWindow to displayWindow when cash button is clicked
         displayWindow.append(cashWindow);
         cashWindow.append(backButton);
         cashWindow.append(subtotalHeader);
@@ -449,13 +500,16 @@
         cashWindow.append(cashInput);
         cashWindow.append(cashSubmit);
 
+        //When back button is pressed redisplay checkoutwindow
         backButton.addEventListener("click", (event) => {
           checkoutWindow.style.display = "flex";
           cashWindow.style.display = "none";
         });
       });
 
+      //Event listener to open card window when card is clicked
       cardButton.addEventListener("click", (event) => {
+        //Creating elements for card window
         const cardWindow = document.createElement("div");
         const cardSubmit = document.createElement("button");
         const cardNumber = document.createElement("input");
@@ -465,24 +519,32 @@
         const expdateLabel = document.createElement("label");
         const cvvLabel = document.createElement("label");
 
+        //add CSS to cardWindo
         cardWindow.classList.add("cashWindow");
 
+        //add CSS, placeholder, and innerText to cardNumber input
         cardNumber.classList.add("cardNumber");
         cardNumber.placeholder = "XXXX XXXX XXXX XXXX";
         cardNumberLabel.innerText = "Card Number:";
 
+        //add CSS, Placeholder, and Innertext to Expiration date input
         cardExp.classList.add("cardExpiration");
         cardExp.placeholder = "MM / YY";
         expdateLabel.innerText = "Expiration Date (MM/YY):";
 
+        //add CSS, Placeholder, and innertext to CVV input
         cardCVV.classList.add("cardCVV");
         cardCVV.placeholder = "CVV";
         cvvLabel.innerText = "CVV:";
 
+        //add CSS and Innertext to Submit button
         cardSubmit.classList.add("viewProductButton");
         cardSubmit.innerText = "Submit";
 
+        //Hide checkoutWindow from display when card button is clicked
         checkoutWindow.style.display = "none";
+
+        //append cardWindow to displayWindow
         document.body.append(cardWindow);
         cardWindow.append(backButton);
         cardWindow.append(cardNumberLabel);
@@ -493,6 +555,7 @@
         cardWindow.append(cardCVV);
         cardWindow.append(cardSubmit);
 
+        //Event listener for back button - hides card window and displays checkout window (might need to change)
         backButton.addEventListener("click", (event) => {
           checkoutWindow.style.display = "flex";
           cardWindow.style.display = "none";
@@ -528,7 +591,7 @@
     var description = productRow1.querySelector(
       ".productDescription"
     ).innerText;
-    console.log(name, imageSrc, description);
+    // console.log(name, imageSrc, description);
     addItemToCart(name, imageSrc, description);
   }
   function addItemToCart(name, imageSrc, description) {
