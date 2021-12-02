@@ -304,7 +304,12 @@
     productWindow.classList.add("productWindow");
     addtoCartButton.classList.add("viewProductButton");
     addtoCartButton.innerText = "Add to Cart";
-
+    var addtoCartButtons = document.getElementsByClassName("viewProductButton");
+    for (var i = 0; i < addtoCartButtons.length; i++) {
+      var button = addtoCartButtons[i];
+      console.log(button);
+      addtoCartButton.addEventListener("click", addToCartClicked);
+    }
     //give product name and description to corresponding elements
     productName.innerText = productObject.name;
     productDescription.innerText = productObject.description;
@@ -512,4 +517,26 @@
         cardWindow.style.display = "none";
       });
     });
+
+  function addToCartClicked(event) {
+    var button = event.target;
+    var productRow1 = button.parentElement;
+    console.log(productRow1);
+    var name = productRow1.querySelector("h2").innerText;
+    //console.log(name);
+    var imageSrc = productRow1.querySelector("img").src;
+    var description = productRow1.querySelector(
+      ".productDescription"
+    ).innerText;
+    console.log(name, imageSrc, description);
+    addItemToCart(name, imageSrc, description);
+  }
+  function addItemToCart(name, imageSrc, description) {
+    var cartRow = document.createElement("div");
+    cartRow.innerText = name;
+    cartDisplay = document.getElementsByClassName("displayWindow")[0];
+
+    cartDisplay.append(cartRow);
+    //console.log(cartDisplay);
+  }
 })();

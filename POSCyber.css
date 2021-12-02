@@ -3,16 +3,15 @@
   padding: 0;
   margin: 0;
 }
-.productRow1{
+.productRow1 {
   margin-top: 130px;
 }
-.displayWindow{
+.displayWindow {
   display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
   height: 100vh;
-  
 }
 .closeButton {
   position: absolute;
@@ -177,7 +176,7 @@ video {
 }
 
 .viewport-header {
-  position:fixed;
+  position: fixed;
   top: 0;
   width: 100%;
   display: flex;
@@ -275,11 +274,11 @@ button {
   h1 {
     font-size: 3rem;
   }
-  
-  .backButton{
-    position:absolute;
-    top:0;
-    left:0;
+
+  .backButton {
+    position: absolute;
+    top: 0;
+    left: 0;
   }
   .productRow1 {
     display: flex;
