@@ -375,6 +375,37 @@
         quantityInput.valueAsNumber * parseInt(optionSelector.value)
       }`;
     });
+
+    function addToCartClicked(event) {
+      var button = event.target;
+      var productRow1 = button.parentElement;
+      console.log(productRow1);
+      var name = productRow1.querySelector("h2").innerText;
+      //console.log(name);
+      var imageSrc = productRow1.querySelector("img").src;
+      var description = productRow1.querySelector(
+        ".productDescription"
+      ).innerText;
+      //console.log(name, imageSrc, description);
+      addItemToCart(productObject);
+    }
+
+    //function called in addToCartClicked that will push product info to shoppingCartArray
+    function addItemToCart(productObject) {
+      if (optionSelector.value === option0.value) {
+        productObject.optionSelected = option0.innerText;
+        productObject.optionPrice = option0.value;
+      } else if (optionSelector.value === option1.value) {
+        productObject.optionSelected = option1.innerText;
+        productObject.optionPrice = option1.value;
+      } else if (optionSelector.value === option2.value) {
+        productObject.optionSelected = option2.innerText;
+        productObject.optionPrice = option2.value;
+      }
+
+      shoppingCartArray.push(productObject);
+      console.log(shoppingCartArray);
+    }
   }
 
   //event listener to open Cart window
@@ -440,6 +471,20 @@
       const shoppingCartPriceHeader = document.createElement("th");
       shoppingCartPriceHeader.innerText = "Price";
       shoppingCartHeaderRow.append(shoppingCartPriceHeader);
+
+      for (let row = 0; row < shoppingCartArray.length; row++) {
+        let newRow = shoppingCartTable.insertRow(row + 1);
+        let cell0 = newRow.insertCell(0);
+        cell0.innerHTML = "<img src=" + shoppingCartArray[row].image + ">";
+        cell0.style.height = "10px";
+        cell0.style.width = "10px";
+        let cell1 = newRow.insertCell(1);
+        cell1.innerHTML = shoppingCartArray[row].name;
+        let cell2 = newRow.insertCell(2);
+        cell2.innerHTML = shoppingCartArray[row].optionSelected;
+        let cell3 = newRow.insertCell(3);
+        cell3.innerHTML = shoppingCartArray[row].optionPrice;
+      }
 
       //append elements to CheckOut Window
       displayWindow.append(checkoutWindow);
@@ -591,7 +636,7 @@
     var description = productRow1.querySelector(
       ".productDescription"
     ).innerText;
-    // console.log(name, imageSrc, description);
+    //console.log(name, imageSrc, description);
     addItemToCart(name, imageSrc, description);
   }
   function addItemToCart(name, imageSrc, description) {
