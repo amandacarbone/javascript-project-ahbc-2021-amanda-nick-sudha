@@ -73,7 +73,7 @@
   background-color: #ff00e9;
   font-size: 3rem;
   margin-top: 45px;
-  width: 490px;
+  width: 550px;
   height: 50px;
 }
 
@@ -97,7 +97,7 @@
   background-color: #ff00e9;
   font-size: 3rem;
   margin: 10px;
-  width: 490px;
+  width: 550px;
   height: 50px;
 }
 
@@ -110,6 +110,7 @@
   background-color: #ff00e9;
   font-size: 3rem;
   margin: 10px;
+  padding: 10px;
   width: 300px;
   height: 200px;
 }
@@ -349,62 +350,35 @@ button {
   }
 
   .checkoutWindow {
-    /* flex-direction: row;
-    justify-content: space-evenly;
-    position: fixed;
-    height: 600px;
+    transform: translateX(-400px);
+    height: 550px;
     width: 900px;
-    color: #000000;
-    background-color: #ffffff;
-    border: 5px solid #000000;
-    top: 30%;
-    left: 50%; */
-    transform: translateX(-100%);
   }
-
-  /* .cartList {
-    transform: translateX(15px);
-    align-self: flex-start;
-    color: #ffffff;
-    background-color: #ff00e9;
-    margin-top: 50px;
-    padding: 10px;
-    width: 1000px;
+  
+  .cartList {
+    width: 900px;
     height: 50px;
   }
-
+  
   .shoppingCartTable {
-    width: 500px;
+    width: 900px;
   }
-
+  
   .shoppingCartTableContainer {
-    transform: translateX(-300px);
-    height: 200px;
-    width: 5500px;
+    width: 900px;
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
-
+  
   .orderSummary {
-    transform: translateX(230px);
-    align-self: flex-start;
-    color: #ffffff;
-    background-color: #ff00e9;
-    font-size: 3rem;
-    margin-top: 50px;
-    padding: 10px;
-    width: 500px;
+    width: 900px;
     height: 50px;
   }
 
   .paymentOptions {
-    flex-direction: column;
-    align-self: flex-end;
-    color: #ffffff;
-    background-color: #ff00e9;
-    font-size: 2rem;
-    margin: 10px;
     width: 300px;
     height: 200px;
-  } */
+  }
 
   .cashWindow {
     position: fixed;
