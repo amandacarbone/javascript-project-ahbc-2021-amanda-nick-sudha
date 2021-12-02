@@ -350,7 +350,9 @@ button {
   }
 
   .checkoutWindow {
-    transform: translateX(-400px);
+    top:30%;
+    left: 50%;
+    transform: translateX(-50%);
     height: 550px;
     width: 900px;
   }
