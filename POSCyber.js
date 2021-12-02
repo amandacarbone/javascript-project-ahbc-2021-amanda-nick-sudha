@@ -307,12 +307,13 @@
     productWindow.classList.add("productWindow");
     addtoCartButton.classList.add("viewProductButton");
     addtoCartButton.innerText = "Add to Cart";
+
+    //Sudha can you add description of this code please :)
     var addtoCartButtons = document.getElementsByClassName("viewProductButton");
     for (var i = 0; i < addtoCartButtons.length; i++) {
-      var button = addtoCartButtons[i];
-      console.log(button);
       addtoCartButton.addEventListener("click", addToCartClicked);
     }
+
     //give product name and description to corresponding elements
     productName.innerText = productObject.name;
     productDescription.innerText = productObject.description;
@@ -376,17 +377,9 @@
       }`;
     });
 
+    //Sudha can you add a discription to this function please :)
     function addToCartClicked(event) {
       var button = event.target;
-      var productRow1 = button.parentElement;
-      console.log(productRow1);
-      var name = productRow1.querySelector("h2").innerText;
-      //console.log(name);
-      var imageSrc = productRow1.querySelector("img").src;
-      var description = productRow1.querySelector(
-        ".productDescription"
-      ).innerText;
-      //console.log(name, imageSrc, description);
       addItemToCart(productObject);
     }
 
@@ -402,9 +395,7 @@
         productObject.optionSelected = option2.innerText;
         productObject.optionPrice = option2.value;
       }
-
       shoppingCartArray.push(productObject);
-      console.log(shoppingCartArray);
     }
   }
 
@@ -472,12 +463,14 @@
       shoppingCartPriceHeader.innerText = "Price";
       shoppingCartHeaderRow.append(shoppingCartPriceHeader);
 
+      //Populates table with info from shoppingCartArray
       for (let row = 0; row < shoppingCartArray.length; row++) {
+        //creates new rows in the table based on how long shoppingCartArray is
         let newRow = shoppingCartTable.insertRow(row + 1);
+
+        //creates and populates cells for the 4 columns of the shoppingCartTable
         let cell0 = newRow.insertCell(0);
         cell0.innerHTML = "<img src=" + shoppingCartArray[row].image + ">";
-        cell0.style.height = "10px";
-        cell0.style.width = "10px";
         let cell1 = newRow.insertCell(1);
         cell1.innerHTML = shoppingCartArray[row].name;
         let cell2 = newRow.insertCell(2);
@@ -625,26 +618,4 @@
         cardWindow.style.display = "none";
       });
     });
-
-  function addToCartClicked(event) {
-    var button = event.target;
-    var productRow1 = button.parentElement;
-    console.log(productRow1);
-    var name = productRow1.querySelector("h2").innerText;
-    //console.log(name);
-    var imageSrc = productRow1.querySelector("img").src;
-    var description = productRow1.querySelector(
-      ".productDescription"
-    ).innerText;
-    //console.log(name, imageSrc, description);
-    addItemToCart(name, imageSrc, description);
-  }
-  function addItemToCart(name, imageSrc, description) {
-    var cartRow = document.createElement("div");
-    cartRow.innerText = name;
-    cartDisplay = document.getElementsByClassName("displayWindow")[0];
-
-    cartDisplay.append(cartRow);
-    //console.log(cartDisplay);
-  }
 })();
