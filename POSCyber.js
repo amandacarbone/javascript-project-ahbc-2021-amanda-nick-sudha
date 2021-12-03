@@ -423,6 +423,7 @@
       const cashButton = document.createElement("button");
       const cardButton = document.createElement("button");
       const shoppingCartTable = document.createElement("table");
+      const orderSummaryTable = document.createElement("table");
 
       //Holds shoppingCartTable allowing for responsiveness
       const shoppingCartTableContainer = document.createElement("div");
@@ -484,6 +485,10 @@
       // shoppingCartPriceHeader.innerText = "Price";
       shoppingCartHeaderRow.append(shoppingCartPriceHeader);
 
+      let subtotal = 0;
+      let tax = 0;
+      let total = 0;
+
       //Populates table with info from shoppingCartArray
       for (let row = 0; row < shoppingCartArray.length; row++) {
         //creates new rows in the table based on how long shoppingCartArray is
@@ -498,7 +503,30 @@
         cell2.innerHTML = shoppingCartArray[row].optionSelected;
         let cell3 = newRow.insertCell(3);
         cell3.innerHTML = shoppingCartArray[row].optionPrice;
+        subtotal += parseInt(shoppingCartArray[row].optionPrice);
       }
+
+      tax = subtotal * .1;
+      total = tax + subtotal;
+
+      let subtotalRow = orderSummaryTable.insertRow(0);
+      let taxRow = orderSummaryTable.insertRow(1);
+      let totalRow = orderSummaryTable.insertRow(2);
+
+      let subtotalCell0 = subtotalRow.insertCell(0);
+      subtotalCell0.innerText = "Subtotal:";
+      let taxCell0 = taxRow.insertCell(0);
+      taxCell0.innerText = "Tax:";
+      let totalCell0 = totalRow.insertCell(0);
+      totalCell0.innerText = "Total:";
+
+      let subtotalCell1 = subtotalRow.insertCell(1);
+      subtotalCell1.innerText = `CR${subtotal}`;
+      let taxCell1 = taxRow.insertCell(1);
+      taxCell1.innerText = `CR${tax}`;
+      let totalCell1 = totalRow.insertCell(1);
+      totalCell1.innerText = `CR${total}`;
+
 
       //append elements to CheckOut Window
       displayWindow.append(checkoutWindow);
@@ -507,6 +535,7 @@
       checkoutWindow.append(shoppingCartTableContainer);
       shoppingCartTableContainer.append(shoppingCartTable);
       checkoutWindow.append(orderSummary);
+      checkoutWindow.append(orderSummaryTable);
       checkoutWindow.append(paymentOptions);
       paymentOptions.append(cashButton);
       paymentOptions.append(cardButton);
@@ -531,9 +560,9 @@
         cashWindow.classList.add("cashWindow");
 
         //Changing inner text of elements to show
-        subtotalHeader.innerText = "Subtotal:";
-        taxHeader.innerText = "Tax:";
-        totalHeader.innerText = "Total:";
+        subtotalHeader.innerText = `Subtotal: CR${subtotal}`;
+        taxHeader.innerText = `Tax: CR${tax}`;
+        totalHeader.innerText = `Total: CR${total}`;
 
         //Setting placeholder, CSS, and innerText for enter credit input
         cashInput.placeholder = "Enter Credits";
@@ -559,6 +588,71 @@
         cashWindow.append(creditInputLabel);
         cashWindow.append(cashInput);
         cashWindow.append(cashSubmit);
+
+        cashSubmit.addEventListener("click", event => {
+          if(parseInt(cashInput.value) < total) {
+            alert("Please enter more credits.")
+          } else if(parseInt(cashInput.value) === total) {
+            const receiptWindow = document.createElement("div");
+            const orderConfirmation = document.createElement("h2");
+            const receiptTotal = document.createElement("h2");
+            const receiptTableContainer = document.createElement("div");
+            const receiptTable = document.createElement("table");
+
+           for(let row = 0; row < shoppingCartArray.length; row++) {
+              let receiptTableRow = receiptTable.insertRow(row);
+              let receiptCell0 = receiptTableRow.insertCell(0);
+              receiptCell0.innerHTML = "<img src=" + shoppingCartArray[row].cartImage + ">";
+              let receiptCell1 = receiptTableRow.insertCell(1);
+              receiptCell1.innerHTML = shoppingCartArray[row].name;
+              let receiptCell2 = receiptTableRow.insertCell(2);
+              receiptCell2.innerHTML = shoppingCartArray[row].optionSelected;
+            }
+
+            orderConfirmation.innerText = "Order Confirmed";
+            
+            receiptTotal.innerText = `Total: CR${total}`;
+
+            receiptWindow.classList.add("receiptWindow");
+            displayWindow.append(receiptWindow);
+            receiptWindow.append(orderConfirmation);
+            receiptWindow.append(receiptTableContainer);
+            receiptTableContainer.append(receiptTable);
+            receiptWindow.append(receiptTotal);
+          } else if(parseInt(cashInput.value) > total) {
+            const changeBack = parseInt(cashInput.value) - total;
+            const receiptWindow = document.createElement("div");
+            const receiptTotal = document.createElement("h2");
+            const receiptChange = document.createElement("h3");
+            const orderConfirmation = document.createElement("h2");
+            const receiptTableContainer = document.createElement("div");
+            const receiptTable = document.createElement("table");
+
+            for(let row = 0; row < shoppingCartArray.length; row++) {
+              let receiptTableRow = receiptTable.insertRow(row);
+              let receiptCell0 = receiptTableRow.insertCell(0);
+              receiptCell0.innerHTML = "<img src=" + shoppingCartArray[row].cartImage + ">";
+              let receiptCell1 = receiptTableRow.insertCell(1);
+              receiptCell1.innerHTML = shoppingCartArray[row].name;
+              let receiptCell2 = receiptTableRow.insertCell(2);
+              receiptCell2.innerHTML = shoppingCartArray[row].optionSelected;
+            }
+
+            orderConfirmation.innerText = "Order Confirmed";
+
+            receiptTotal.innerText = `Total: CR${total}`;
+
+            receiptChange.innerText = `You entered CR${cashInput.value}. Your change is CR${changeBack}.`
+
+            receiptWindow.classList.add("receiptWindow");
+            displayWindow.append(receiptWindow);
+            receiptWindow.append(orderConfirmation);
+            receiptWindow.append(receiptTableContainer);
+            receiptTableContainer.append(receiptTable);
+            receiptWindow.append(receiptTotal);
+            receiptWindow.append(receiptChange);
+          }
+        })
 
         //When back button is pressed redisplay checkoutwindow
         backButton.addEventListener("click", (event) => {
@@ -622,22 +716,22 @@
         });
       });
 
-      cashSubmit.addEventListener("click", (event) => {
-        const receiptWindow = document.createElement("div");
+      // cashSubmit.addEventListener("click", (event) => {
+      //   const receiptWindow = document.createElement("div");
 
-        receiptWindow.classList.add("receiptWindow");
+      //   receiptWindow.classList.add("receiptWindow");
 
-        document.body.append(receiptWindow);
-        cashWindow.style.display = "none";
-      });
+      //   document.body.append(receiptWindow);
+      //   cashWindow.style.display = "none";
+      // });
 
-      cardSubmit.addEventListener("click", (event) => {
-        const receiptWindow = document.createElement("div");
+      // cardSubmit.addEventListener("click", (event) => {
+      //   const receiptWindow = document.createElement("div");
 
-        receiptWindow.classList.add("receiptWindow");
+      //   receiptWindow.classList.add("receiptWindow");
 
-        document.body.append(receiptWindow);
-        cardWindow.style.display = "none";
-      });
+      //   document.body.append(receiptWindow);
+      //   cardWindow.style.display = "none";
+      // });
     });
 })();
