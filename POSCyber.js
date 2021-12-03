@@ -503,12 +503,17 @@
         cell2.innerHTML = shoppingCartArray[row].optionSelected;
         let cell3 = newRow.insertCell(3);
         cell3.innerHTML = shoppingCartArray[row].optionPrice;
+        //calculates subtotal price of items in cart before tax
         subtotal += parseInt(shoppingCartArray[row].optionPrice);
       }
 
+      //calculates tax for orderSummary
       tax = subtotal * .1;
+
+      //calculates total for orderSummary
       total = tax + subtotal;
 
+      //populates orderSummary with subtotal, tax, and total
       let subtotalRow = orderSummaryTable.insertRow(0);
       let taxRow = orderSummaryTable.insertRow(1);
       let totalRow = orderSummaryTable.insertRow(2);
@@ -589,9 +594,11 @@
         cashWindow.append(cashInput);
         cashWindow.append(cashSubmit);
 
+        //checks cash value entered by user under three conditions: not enough, exact, and over with change back
         cashSubmit.addEventListener("click", event => {
           if(parseInt(cashInput.value) < total) {
             alert("Please enter more credits.")
+
           } else if(parseInt(cashInput.value) === total) {
             const receiptWindow = document.createElement("div");
             const orderConfirmation = document.createElement("h2");
@@ -599,6 +606,7 @@
             const receiptTableContainer = document.createElement("div");
             const receiptTable = document.createElement("table");
 
+          //populates list of items purchased in receiptWindow
            for(let row = 0; row < shoppingCartArray.length; row++) {
               let receiptTableRow = receiptTable.insertRow(row);
               let receiptCell0 = receiptTableRow.insertCell(0);
@@ -609,8 +617,10 @@
               receiptCell2.innerHTML = shoppingCartArray[row].optionSelected;
             }
 
+            //adds order confirmation message to receiptWindow
             orderConfirmation.innerText = "Order Confirmed";
             
+            //adds total price of purchase to receiptWindow
             receiptTotal.innerText = `Total: CR${total}`;
 
             receiptWindow.classList.add("receiptWindow");
@@ -619,6 +629,7 @@
             receiptWindow.append(receiptTableContainer);
             receiptTableContainer.append(receiptTable);
             receiptWindow.append(receiptTotal);
+
           } else if(parseInt(cashInput.value) > total) {
             const changeBack = parseInt(cashInput.value) - total;
             const receiptWindow = document.createElement("div");
@@ -628,6 +639,7 @@
             const receiptTableContainer = document.createElement("div");
             const receiptTable = document.createElement("table");
 
+            //populates list of items purchased in receiptWindow
             for(let row = 0; row < shoppingCartArray.length; row++) {
               let receiptTableRow = receiptTable.insertRow(row);
               let receiptCell0 = receiptTableRow.insertCell(0);
@@ -638,10 +650,13 @@
               receiptCell2.innerHTML = shoppingCartArray[row].optionSelected;
             }
 
+            //adds order confirmation message to receiptWindow
             orderConfirmation.innerText = "Order Confirmed";
 
+            //adds total price of purchase to receiptWindow
             receiptTotal.innerText = `Total: CR${total}`;
 
+            //adds value entered by user and the change given back
             receiptChange.innerText = `You entered CR${cashInput.value}. Your change is CR${changeBack}.`
 
             receiptWindow.classList.add("receiptWindow");
