@@ -679,27 +679,35 @@
       //Event listener to open card window when card is clicked
       cardButton.addEventListener("click", (event) => {
         //Creating elements for card window
+        const cardSubtotalHeader = document.createElement("h2");
+        const cardTaxHeader = document.createElement("h2");
+        const cardTotalHeader = document.createElement("h2");
         const cardWindow = document.createElement("div");
         const cardSubmit = document.createElement("button");
         const cardNumber = document.createElement("input");
+        const cardExpContainer = document.createElement("div");
         const cardExp = document.createElement("input");
         const cardCVV = document.createElement("input");
         const cardNumberLabel = document.createElement("label");
-        const expdateLabel = document.createElement("label");
+        const expDateLabel = document.createElement("label");
         const cvvLabel = document.createElement("label");
 
         //add CSS to cardWindo
         cardWindow.classList.add("cashWindow");
 
+        cardSubtotalHeader.innerText = `Subtotal: CR${subtotal}`;
+        cardTaxHeader.innerText = `Tax: CR${tax}`;
+        cardTotalHeader.innerText = `Total: CR${total}`;
+
         //add CSS, placeholder, and innerText to cardNumber input
         cardNumber.classList.add("cardNumber");
-        cardNumber.placeholder = "XXXX XXXX XXXX XXXX";
+        cardNumber.placeholder = "XXXXXXXXXXXXXXXX";
         cardNumberLabel.innerText = "Card Number:";
 
         //add CSS, Placeholder, and Innertext to Expiration date input
         cardExp.classList.add("cardExpiration");
         cardExp.placeholder = "MM / YY";
-        expdateLabel.innerText = "Expiration Date (MM/YY):";
+        expDateLabel.innerText = "Expiration Date (MM/YY):";
 
         //add CSS, Placeholder, and innertext to CVV input
         cardCVV.classList.add("cardCVV");
@@ -716,13 +724,56 @@
         //append cardWindow to displayWindow
         document.body.append(cardWindow);
         cardWindow.append(backButton);
+        cardWindow.append(cardSubtotalHeader);
+        cardWindow.append(cardTaxHeader);
+        cardWindow.append(cardTotalHeader);
         cardWindow.append(cardNumberLabel);
         cardWindow.append(cardNumber);
-        cardWindow.append(expdateLabel);
-        cardWindow.append(cardExp);
+        cardWindow.append(expDateLabel);
+        cardWindow.append(cardExpContainer);
+        cardExpContainer.append(cardExp);
         cardWindow.append(cvvLabel);
         cardWindow.append(cardCVV);
         cardWindow.append(cardSubmit);
+
+        cardSubmit.addEventListener("click", event => {
+          const cardNumberValidator = cardNumber.value;
+          if(cardNumberValidator.length === 16) {
+            console.log(cardNumberValidator.length);
+            const cardReceiptWindow = document.createElement("div");
+            const cardOrderConfirmation = document.createElement("h2");
+            const cardReceiptTotal = document.createElement("h2");
+            const cardReceiptTableContainer = document.createElement("div");
+            const cardReceiptTable = document.createElement("table");
+
+          //populates list of items purchased in receiptWindow
+           for(let row = 0; row < shoppingCartArray.length; row++) {
+              let cardReceiptTableRow = cardReceiptTable.insertRow(row);
+              let cardReceiptCell0 = cardReceiptTableRow.insertCell(0);
+              cardReceiptCell0.innerHTML = "<img src=" + shoppingCartArray[row].cartImage + ">";
+              let cardReceiptCell1 = cardReceiptTableRow.insertCell(1);
+              cardReceiptCell1.innerHTML = shoppingCartArray[row].name;
+              let cardReceiptCell2 = cardReceiptTableRow.insertCell(2);
+              cardReceiptCell2.innerHTML = shoppingCartArray[row].optionSelected;
+            }
+
+            //adds order confirmation message to receiptWindow
+            cardOrderConfirmation.innerText = "Order Confirmed";
+            
+            //adds total price of purchase to receiptWindow
+            cardReceiptTotal.innerText = `Total: CR${total}`;
+
+            cardReceiptWindow.classList.add("receiptWindow");
+
+            displayWindow.append(cardReceiptWindow);
+            cardReceiptWindow.append(cardOrderConfirmation);
+            cardReceiptWindow.append(cardReceiptTableContainer);
+            cardReceiptTableContainer.append(cardReceiptTable);
+            cardReceiptWindow.append(cardReceiptTotal);
+          } else {
+            alert("Invalid card number. Please try again.")
+          }
+        })
 
         //Event listener for back button - hides card window and displays checkout window (might need to change)
         backButton.addEventListener("click", (event) => {
