@@ -508,7 +508,7 @@
       }
 
       //calculates tax for orderSummary
-      tax = subtotal * .1;
+      tax = subtotal * 0.1;
 
       //calculates total for orderSummary
       total = tax + subtotal;
@@ -531,7 +531,6 @@
       taxCell1.innerText = `CR${tax}`;
       let totalCell1 = totalRow.insertCell(1);
       totalCell1.innerText = `CR${total}`;
-
 
       //append elements to CheckOut Window
       displayWindow.append(checkoutWindow);
@@ -595,22 +594,22 @@
         cashWindow.append(cashSubmit);
 
         //checks cash value entered by user under three conditions: not enough, exact, and over with change back
-        cashSubmit.addEventListener("click", event => {
-          if(parseInt(cashInput.value) < total) {
-            alert("Please enter more credits.")
-
-          } else if(parseInt(cashInput.value) === total) {
+        cashSubmit.addEventListener("click", (event) => {
+          if (parseInt(cashInput.value) < total) {
+            alert("Please enter more credits.");
+          } else if (parseInt(cashInput.value) === total) {
             const receiptWindow = document.createElement("div");
             const orderConfirmation = document.createElement("h2");
             const receiptTotal = document.createElement("h2");
             const receiptTableContainer = document.createElement("div");
             const receiptTable = document.createElement("table");
 
-          //populates list of items purchased in receiptWindow
-           for(let row = 0; row < shoppingCartArray.length; row++) {
+            //populates list of items purchased in receiptWindow
+            for (let row = 0; row < shoppingCartArray.length; row++) {
               let receiptTableRow = receiptTable.insertRow(row);
               let receiptCell0 = receiptTableRow.insertCell(0);
-              receiptCell0.innerHTML = "<img src=" + shoppingCartArray[row].cartImage + ">";
+              receiptCell0.innerHTML =
+                "<img src=" + shoppingCartArray[row].cartImage + ">";
               let receiptCell1 = receiptTableRow.insertCell(1);
               receiptCell1.innerHTML = shoppingCartArray[row].name;
               let receiptCell2 = receiptTableRow.insertCell(2);
@@ -619,20 +618,20 @@
 
             //adds order confirmation message to receiptWindow
             orderConfirmation.innerText = "Order Confirmed";
-            
+
             //adds total price of purchase to receiptWindow
             receiptTotal.innerText = `Total: CR${total}`;
 
             receiptWindow.classList.add("receiptWindow");
+
             displayWindow.append(receiptWindow);
             receiptWindow.append(orderConfirmation);
             receiptWindow.append(receiptTableContainer);
             receiptTableContainer.append(receiptTable);
             receiptWindow.append(receiptTotal);
-
-          } else if(parseInt(cashInput.value) > total) {
+          } else if (parseInt(cashInput.value) > total) {
             const changeBack = parseInt(cashInput.value) - total;
-            const receiptWindow = document.createElement("div");
+            const cashReceiptWindow = document.createElement("div");
             const receiptTotal = document.createElement("h2");
             const receiptChange = document.createElement("h3");
             const orderConfirmation = document.createElement("h2");
@@ -640,10 +639,11 @@
             const receiptTable = document.createElement("table");
 
             //populates list of items purchased in receiptWindow
-            for(let row = 0; row < shoppingCartArray.length; row++) {
+            for (let row = 0; row < shoppingCartArray.length; row++) {
               let receiptTableRow = receiptTable.insertRow(row);
               let receiptCell0 = receiptTableRow.insertCell(0);
-              receiptCell0.innerHTML = "<img src=" + shoppingCartArray[row].cartImage + ">";
+              receiptCell0.innerHTML =
+                "<img src=" + shoppingCartArray[row].cartImage + ">";
               let receiptCell1 = receiptTableRow.insertCell(1);
               receiptCell1.innerHTML = shoppingCartArray[row].name;
               let receiptCell2 = receiptTableRow.insertCell(2);
@@ -657,17 +657,18 @@
             receiptTotal.innerText = `Total: CR${total}`;
 
             //adds value entered by user and the change given back
-            receiptChange.innerText = `You entered CR${cashInput.value}. Your change is CR${changeBack}.`
+            receiptChange.innerText = `You entered CR${cashInput.value}. Your change is CR${changeBack}.`;
 
-            receiptWindow.classList.add("receiptWindow");
-            displayWindow.append(receiptWindow);
-            receiptWindow.append(orderConfirmation);
-            receiptWindow.append(receiptTableContainer);
+            cashReceiptWindow.classList.add("receiptWindow");
+            displayWindow.append(cashReceiptWindow);
+            cashReceiptWindow.append(closeButton);
+            cashReceiptWindow.append(orderConfirmation);
+            cashReceiptWindow.append(receiptTableContainer);
             receiptTableContainer.append(receiptTable);
-            receiptWindow.append(receiptTotal);
-            receiptWindow.append(receiptChange);
+            cashReceiptWindow.append(receiptTotal);
+            cashReceiptWindow.append(receiptChange);
           }
-        })
+        });
 
         //When back button is pressed redisplay checkoutwindow
         backButton.addEventListener("click", (event) => {
@@ -693,7 +694,7 @@
         const expDateLabel = document.createElement("label");
         const cvvLabel = document.createElement("label");
 
-        //add CSS to cardWindo
+        //add CSS to cardWindow
         cardWindow.classList.add("cashWindow");
 
         cardSubtotalHeader.innerText = `Subtotal: CR${subtotal}`;
@@ -741,42 +742,73 @@
         cardWindow.append(cardCVV);
         cardWindow.append(cardSubmit);
 
-        cardSubmit.addEventListener("click", event => {
+        //event listener for clicking card submit button brings us receipt window
+        cardSubmit.addEventListener("click", (event) => {
+          //variables to validate card information is entered in correct format
           const cardNumberValidator = cardNumber.value;
-          if(cardNumberValidator.length === 16) {
-            console.log(cardNumberValidator.length);
-            const cardReceiptWindow = document.createElement("div");
-            const cardOrderConfirmation = document.createElement("h2");
-            const cardReceiptTotal = document.createElement("h2");
-            const cardReceiptTableContainer = document.createElement("div");
-            const cardReceiptTable = document.createElement("table");
+          const expirationValidatorMonth = parseInt(cardExpMonth.value);
+          const expirationValidatorYear = cardExpYear.value;
+          const cvvValidator = cardCVV.value;
 
-          //populates list of items purchased in receiptWindow
-           for(let row = 0; row < shoppingCartArray.length; row++) {
-              let cardReceiptTableRow = cardReceiptTable.insertRow(row);
-              let cardReceiptCell0 = cardReceiptTableRow.insertCell(0);
-              cardReceiptCell0.innerHTML = "<img src=" + shoppingCartArray[row].cartImage + ">";
-              let cardReceiptCell1 = cardReceiptTableRow.insertCell(1);
-              cardReceiptCell1.innerHTML = shoppingCartArray[row].name;
-              let cardReceiptCell2 = cardReceiptTableRow.insertCell(2);
-              cardReceiptCell2.innerHTML = shoppingCartArray[row].optionSelected;
+          //If the cardnumber is 16 digits open receipt else alert card number is wrong
+          if (cardNumberValidator.length === 16) {
+            //if the expiration month is between 1 and 12 open receipt window else alert invalid month
+            if (expirationValidatorMonth > 0 && expirationValidatorMonth < 13) {
+              //if the expiration year is 4 digits long and the year is greater than or equal to current year open receipt window else alert invalid year
+              if (
+                expirationValidatorYear.length === 4 &&
+                expirationValidatorYear >= new Date().getFullYear()
+              ) {
+                //if the cvv is 3 digits long open receipt window else alert invalid cvv
+                if (cvvValidator.length === 3) {
+                  //creating elements for card receipt window
+                  const cardReceiptWindow = document.createElement("div");
+                  const cardOrderConfirmation = document.createElement("h2");
+                  const cardReceiptTotal = document.createElement("h2");
+                  const cardReceiptTableContainer =
+                    document.createElement("div");
+                  const cardReceiptTable = document.createElement("table");
+
+                  //populates list of items purchased in receiptWindow
+                  for (let row = 0; row < shoppingCartArray.length; row++) {
+                    let cardReceiptTableRow = cardReceiptTable.insertRow(row);
+                    let cardReceiptCell0 = cardReceiptTableRow.insertCell(0);
+                    cardReceiptCell0.innerHTML =
+                      "<img src=" + shoppingCartArray[row].cartImage + ">";
+                    let cardReceiptCell1 = cardReceiptTableRow.insertCell(1);
+                    cardReceiptCell1.innerHTML = shoppingCartArray[row].name;
+                    let cardReceiptCell2 = cardReceiptTableRow.insertCell(2);
+                    cardReceiptCell2.innerHTML =
+                      shoppingCartArray[row].optionSelected;
+                  }
+
+                  //adds order confirmation message to receiptWindow
+                  cardOrderConfirmation.innerText = "Order Confirmed";
+
+                  //adds total price of purchase to receiptWindow
+                  cardReceiptTotal.innerText = `Total: CR${total}`;
+
+                  //adding style to cardReceiptWindow
+                  cardReceiptWindow.classList.add("receiptWindow");
+
+                  //append elements to display window and cardWindow
+                  displayWindow.append(cardReceiptWindow);
+                  cardReceiptWindow.append(closeButton);
+                  cardReceiptWindow.append(cardOrderConfirmation);
+                  cardReceiptWindow.append(cardReceiptTableContainer);
+                  cardReceiptTableContainer.append(cardReceiptTable);
+                  cardReceiptWindow.append(cardReceiptTotal);
+                } else {
+                  alert("Invalid CVV. Please enter card information again.");
+                }
+              } else {
+                alert("Invalid year. Please enter card information again.");
+              }
+            } else {
+              alert("Invalid month. Please enter card information again.");
             }
-
-            //adds order confirmation message to receiptWindow
-            cardOrderConfirmation.innerText = "Order Confirmed";
-            
-            //adds total price of purchase to receiptWindow
-            cardReceiptTotal.innerText = `Total: CR${total}`;
-
-            cardReceiptWindow.classList.add("receiptWindow");
-
-            displayWindow.append(cardReceiptWindow);
-            cardReceiptWindow.append(cardOrderConfirmation);
-            cardReceiptWindow.append(cardReceiptTableContainer);
-            cardReceiptTableContainer.append(cardReceiptTable);
-            cardReceiptWindow.append(cardReceiptTotal);
           } else {
-            alert("Invalid card number. Please try again.")
+            alert("Invalid card number. Please enter card information again.");
           }
         });
 
