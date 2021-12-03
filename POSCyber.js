@@ -686,7 +686,8 @@
         const cardSubmit = document.createElement("button");
         const cardNumber = document.createElement("input");
         const cardExpContainer = document.createElement("div");
-        const cardExp = document.createElement("input");
+        const cardExpMonth = document.createElement("input");
+        const cardExpYear = document.createElement("input");
         const cardCVV = document.createElement("input");
         const cardNumberLabel = document.createElement("label");
         const expDateLabel = document.createElement("label");
@@ -705,9 +706,12 @@
         cardNumberLabel.innerText = "Card Number:";
 
         //add CSS, Placeholder, and Innertext to Expiration date input
-        cardExp.classList.add("cardExpiration");
-        cardExp.placeholder = "MM / YY";
+        cardExpMonth.classList.add("cardExpiration");
+        cardExpMonth.placeholder = "MM";
         expDateLabel.innerText = "Expiration Date (MM/YY):";
+
+        cardExpYear.classList.add("cardExpiration");
+        cardExpYear.placeholder = "YYYY";
 
         //add CSS, Placeholder, and innertext to CVV input
         cardCVV.classList.add("cardCVV");
@@ -722,7 +726,7 @@
         checkoutWindow.style.display = "none";
 
         //append cardWindow to displayWindow
-        document.body.append(cardWindow);
+        displayWindow.append(cardWindow);
         cardWindow.append(backButton);
         cardWindow.append(cardSubtotalHeader);
         cardWindow.append(cardTaxHeader);
@@ -731,7 +735,8 @@
         cardWindow.append(cardNumber);
         cardWindow.append(expDateLabel);
         cardWindow.append(cardExpContainer);
-        cardExpContainer.append(cardExp);
+        cardExpContainer.append(cardExpMonth);
+        cardExpContainer.append(cardExpYear);
         cardWindow.append(cvvLabel);
         cardWindow.append(cardCVV);
         cardWindow.append(cardSubmit);
@@ -773,7 +778,7 @@
           } else {
             alert("Invalid card number. Please try again.")
           }
-        })
+        });
 
         //Event listener for back button - hides card window and displays checkout window (might need to change)
         backButton.addEventListener("click", (event) => {
