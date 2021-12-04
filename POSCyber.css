@@ -101,6 +101,13 @@
   height: 50px;
 }
 
+.orderSummaryTable {
+  table-layout: fixed;
+  width: 500px;
+  text-align: center;
+  margin-top: 10px;
+}
+
 .paymentOptions {
   display: flex;
   flex-direction: column;
@@ -155,19 +162,26 @@
 .cardNumber {
   font-size: 20px;
   height: 50px;
+  width: 200px;
 }
 
 .cardExpiration {
   font-size: 20px;
   height: 50px;
+  width: 50px;
 }
 
 .cardCVV {
   font-size: 20px;
   height: 50px;
+  width: 50px;
 }
 
 .receiptWindow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
   position: fixed;
   height: 500px;
   width: 500px;
@@ -177,6 +191,19 @@
   top: 30%;
   right: 10%;
   bottom: 50%;
+}
+
+.receiptTable {
+  table-layout: fixed;
+  width: 400px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.receiptTableContainer {
+  height: 300px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 video {
@@ -419,6 +446,7 @@ button {
     left: 50%;
     transform: translateX(-50%);
   }
+
   button {
     padding: 5px;
     background-color: #fdff00;

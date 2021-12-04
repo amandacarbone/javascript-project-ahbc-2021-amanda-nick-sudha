@@ -445,6 +445,9 @@
       orderSummary.classList.add("orderSummary");
       orderSummary.innerText = "Order Summary";
 
+      //adds CSS to orderSummaryTable
+      orderSummaryTable.classList.add("orderSummaryTable");
+
       //adding CSS to payment options box
       paymentOptions.classList.add("paymentOptions");
       paymentOptions.innerText = "Checkout";
@@ -659,6 +662,12 @@
             //adds value entered by user and the change given back
             receiptChange.innerText = `You entered CR${cashInput.value}. Your change is CR${changeBack}.`;
 
+            //adds CSS to receiptTable
+            receiptTable.classList.add("receiptTable");
+
+            //adds CSS to receiptTableContainer enabling responsiveness
+            receiptTableContainer.classList.add("receiptTableContainer");
+
             cashReceiptWindow.classList.add("receiptWindow");
             displayWindow.append(cashReceiptWindow);
             cashReceiptWindow.append(closeButton);
@@ -790,6 +799,12 @@
 
                   //adding style to cardReceiptWindow
                   cardReceiptWindow.classList.add("receiptWindow");
+
+                  //adds CSS to receiptTable
+                  cardReceiptTable.classList.add("receiptTable");
+
+                  //adds CSS to receiptTableContainer enabling responsiveness
+                  cardReceiptTableContainer.classList.add("receiptTableContainer");
 
                   //append elements to display window and cardWindow
                   displayWindow.append(cardReceiptWindow);
