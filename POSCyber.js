@@ -306,14 +306,14 @@
     const productName = document.createElement("h2");
     const productDescription = document.createElement("p");
     const optionSelector = document.createElement("select");
-    const quantityInput = document.createElement("input");
+    // const quantityInput = document.createElement("input");
     const productImage = document.createElement("img");
     const productPrice = document.createElement("div");
     const option0 = document.createElement("option");
     const option1 = document.createElement("option");
     const option2 = document.createElement("option");
     const optionLabel = document.createElement("label");
-    const quantityLabel = document.createElement("label");
+    // const quantityLabel = document.createElement("label");
 
     //give productWindow and productButton elements CSS classes and text
     productWindow.classList.add("productWindow");
@@ -348,17 +348,17 @@
     optionLabel.innerText = "Options:";
 
     //Label for quantity
-    quantityLabel.innerText = "Quantity:";
+    // quantityLabel.innerText = "Quantity:";
 
     //set price display to first option
     productPrice.innerText = `Price: CR${productObject.options[0].price}`;
     productPrice.style.marginBottom = "10px";
 
     //set up for quantity window
-    quantityInput.type = "number";
-    quantityInput.min = 1;
-    quantityInput.valueAsNumber = 1;
-    quantityInput.style.marginBottom = "10px";
+    // quantityInput.type = "number";
+    // quantityInput.min = 1;
+    // quantityInput.valueAsNumber = 1;
+    // quantityInput.style.marginBottom = "10px";
 
     //append and add all elements to windows
     displayWindow.append(productWindow);
@@ -369,8 +369,8 @@
     productWindow.append(optionLabel);
     productWindow.append(optionSelector);
     productWindow.append(productPrice);
-    productWindow.append(quantityLabel);
-    productWindow.append(quantityInput);
+    // productWindow.append(quantityLabel);
+    // productWindow.append(quantityInput);
     productWindow.append(addtoCartButton);
     optionSelector.add(option0);
     optionSelector.add(option1);
@@ -383,11 +383,11 @@
     };
 
     //When quantityInput is changed multiplies and displays price * quantity
-    quantityInput.addEventListener("change", (event) => {
-      productPrice.innerText = `Price: CR${
-        quantityInput.valueAsNumber * parseInt(optionSelector.value)
-      }`;
-    });
+    // quantityInput.addEventListener("change", (event) => {
+    //   productPrice.innerText = `Price: CR${
+    //     quantityInput.valueAsNumber * parseInt(optionSelector.value)
+    //   }`;
+    // });
 
     //Sudha can you add a description to this function please :)
     function addToCartClicked(event) {
