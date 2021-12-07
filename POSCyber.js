@@ -3,6 +3,7 @@
   const viewProductButtons = document.querySelectorAll(".viewProductButton");
   const displayWindow = document.querySelector(".displayWindow");
   const header = document.querySelector("header");
+
   const closeButton = document.createElement("button");
   const backButton = document.createElement("button");
   const amountInCart = document.createElement("div");
@@ -279,7 +280,7 @@
     },
   ];
 
-  //loop to select product window
+  //loop to have eventcaller work on all view product buttons
   for (let button of viewProductButtons) {
     //Event that calls displayProduct window of product clicked
     button.addEventListener("click", (event) => {
@@ -370,7 +371,7 @@
     // quantityLabel.innerText = "Quantity:";
 
     //set price display to first option
-    productPrice.innerText = `Price: CR${productObject.options[0].price}`;
+    productPrice.innerText = `Price: CR ${productObject.options[0].price}`;
     productPrice.style.marginBottom = "10px";
 
     //set up for quantity window
@@ -396,10 +397,10 @@
     optionSelector.add(option2);
 
     //changes productPrice to the price of option and resets quantity to 1
-    optionSelector.onchange = function () {
-      productPrice.innerText = `Price: CR${optionSelector.value}`;
-      quantityInput.valueAsNumber = 1;
-    };
+    // optionSelector.onchange = function () {
+    //   productPrice.innerText = `Price: CR ${optionSelector.value}`;
+    //   quantityInput.valueAsNumber = 1;
+    // };
 
     //When quantityInput is changed multiplies and displays price * quantity
     // quantityInput.addEventListener("change", (event) => {
@@ -522,7 +523,7 @@
         let cell2 = newRow.insertCell(2);
         cell2.innerHTML = shoppingCartArray[row].optionSelected;
         let cell3 = newRow.insertCell(3);
-        cell3.innerText = "remove";
+        cell3.innerHTML = `<button id='${row}' class='removeButton'>Remove</button>`;
         let cell4 = newRow.insertCell(4);
         cell4.innerHTML = shoppingCartArray[row].optionPrice;
 
@@ -566,6 +567,18 @@
       checkoutWindow.append(paymentOptions);
       paymentOptions.append(cashButton);
       paymentOptions.append(cardButton);
+
+      const removeButtons = document.querySelectorAll(".removeButton");
+
+      console.log(removeButtons);
+      for (let removeButton of removeButtons) {
+        removeButton.addEventListener("click", (event) => {
+          console.log(shoppingCartArray + "before");
+
+          shoppingCartArray.splice(parseInt(event.target.id), 1);
+          console.log(shoppingCartArray + "after");
+        });
+      }
 
       //Event listener on close button to close checkout window
       closeButton.addEventListener("click", (event) => {
@@ -883,4 +896,5 @@
       //   cardWindow.style.display = "none";
       // });
     });
+  function addItemsToCart() {}
 })();
