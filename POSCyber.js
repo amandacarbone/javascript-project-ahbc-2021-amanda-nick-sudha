@@ -2,13 +2,28 @@
   //selecting for elements in html page
   const viewProductButtons = document.querySelectorAll(".viewProductButton");
   const displayWindow = document.querySelector(".displayWindow");
+  const header = document.querySelector("header");
   const closeButton = document.createElement("button");
   const backButton = document.createElement("button");
+  const amountInCart = document.createElement("div");
 
   //Array to store what is in shopping cart
   let cartFromStorageString = window.localStorage.getItem("cart");
-  let cartFromStorage = JSON.parse(cartFromStorageString);
-  let shoppingCartArray = cartFromStorage;
+
+  let cartFromStorage = [];
+  // if (cartFromStorageString != null)
+  cartFromStorage = JSON.parse(cartFromStorageString);
+  let shoppingCartArray = [];
+  if (cartFromStorage !== null) {
+    shoppingCartArray = cartFromStorage;
+  }
+
+  if (shoppingCartArray.length > 0) {
+    amountInCart.innerText = shoppingCartArray.length;
+    header.append(amountInCart);
+  } else {
+    amountInCart.remove();
+  }
 
   //add class to closeButton, and placeholder innerText
   closeButton.classList.add("closeButton");
@@ -395,6 +410,12 @@
     function addToCartClicked(event) {
       var button = event.target;
       addItemToCart(productObject);
+      if (shoppingCartArray.length > 0) {
+        amountInCart.innerText = shoppingCartArray.length;
+        header.append(amountInCart);
+      } else {
+        amountInCart.remove();
+      }
     }
 
     //function called in addToCartClicked that will push product info to shoppingCartArray
@@ -633,7 +654,6 @@
             receiptWindow.append(receiptTableContainer);
             receiptTableContainer.append(receiptTable);
             receiptWindow.append(receiptTotal);
-
           } else if (parseInt(cashInput.value) > total) {
             const changeBack = parseInt(cashInput.value) - total;
             const cashReceiptWindow = document.createElement("div");
@@ -669,7 +689,7 @@
 
             //adds CSS to receiptTableContainer enabling responsiveness
             receiptTableContainer.classList.add("receiptTableContainer");
-            
+
             //adds CSS to receiptWindow
             cashReceiptWindow.classList.add("receiptWindow");
 
