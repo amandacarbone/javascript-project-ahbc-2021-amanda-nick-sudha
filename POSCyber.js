@@ -6,7 +6,9 @@
   const backButton = document.createElement("button");
 
   //Array to store what is in shopping cart
-  let shoppingCartArray = [];
+  let cartFromStorageString = window.localStorage.getItem("cart");
+  let cartFromStorage = JSON.parse(cartFromStorageString);
+  let shoppingCartArray = cartFromStorage;
 
   //add class to closeButton, and placeholder innerText
   closeButton.classList.add("closeButton");
@@ -408,6 +410,7 @@
         productObject.optionPrice = option2.value;
       }
       shoppingCartArray.push(productObject);
+      window.localStorage.setItem("cart", JSON.stringify(shoppingCartArray));
     }
   }
 
@@ -465,27 +468,18 @@
 
       //Add header to table row 0
       const shoppingCartImageHeader = document.createElement("th");
-      // shoppingCartImageHeader.innerText = "ImageHeader";
       shoppingCartHeaderRow.append(shoppingCartImageHeader);
 
       //Add header to table row 0
       const shoppingCartProductNameHeader = document.createElement("th");
-      // shoppingCartProductNameHeader.innerText = "Product Name";
       shoppingCartHeaderRow.append(shoppingCartProductNameHeader);
 
       //Add header to table row 0
       const shoppingCartOptionHeader = document.createElement("th");
-      // shoppingCartOptionHeader.innerText = "Option";
       shoppingCartHeaderRow.append(shoppingCartOptionHeader);
 
       //Add header to table row 0
-      // const shoppingCartQuantityHeader = document.createElement("th");
-      // shoppingCartQuantityHeader.innerText = "Quantity";
-      // shoppingCartHeaderRow.append(shoppingCartQuantityHeader);
-
-      //Add header to table row 0
       const shoppingCartPriceHeader = document.createElement("th");
-      // shoppingCartPriceHeader.innerText = "Price";
       shoppingCartHeaderRow.append(shoppingCartPriceHeader);
 
       let subtotal = 0;
@@ -804,7 +798,9 @@
                   cardReceiptTable.classList.add("receiptTable");
 
                   //adds CSS to receiptTableContainer enabling responsiveness
-                  cardReceiptTableContainer.classList.add("receiptTableContainer");
+                  cardReceiptTableContainer.classList.add(
+                    "receiptTableContainer"
+                  );
 
                   //append elements to display window and cardWindow
                   displayWindow.append(cardReceiptWindow);
