@@ -619,13 +619,21 @@
             //adds total price of purchase to receiptWindow
             receiptTotal.innerText = `Total: CR${total}`;
 
+            //adds CSS to receiptWindow
             receiptWindow.classList.add("receiptWindow");
+
+            //adds CSS to receiptTable
+            receiptTable.classList.add("receiptTable");
+
+            //adds CSS to receiptTableContainer enabling responsiveness
+            receiptTableContainer.classList.add("receiptTableContainer");
 
             displayWindow.append(receiptWindow);
             receiptWindow.append(orderConfirmation);
             receiptWindow.append(receiptTableContainer);
             receiptTableContainer.append(receiptTable);
             receiptWindow.append(receiptTotal);
+
           } else if (parseInt(cashInput.value) > total) {
             const changeBack = parseInt(cashInput.value) - total;
             const cashReceiptWindow = document.createElement("div");
@@ -661,8 +669,10 @@
 
             //adds CSS to receiptTableContainer enabling responsiveness
             receiptTableContainer.classList.add("receiptTableContainer");
-
+            
+            //adds CSS to receiptWindow
             cashReceiptWindow.classList.add("receiptWindow");
+
             displayWindow.append(cashReceiptWindow);
             cashReceiptWindow.append(closeButton);
             cashReceiptWindow.append(orderConfirmation);
