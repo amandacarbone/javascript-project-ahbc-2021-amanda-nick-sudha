@@ -520,7 +520,10 @@
         let cell2 = newRow.insertCell(2);
         cell2.innerHTML = shoppingCartArray[row].optionSelected;
         let cell3 = newRow.insertCell(3);
-        cell3.innerHTML = shoppingCartArray[row].optionPrice;
+        cell3.innerText = "remove";
+        let cell4 = newRow.insertCell(4);
+        cell4.innerHTML = shoppingCartArray[row].optionPrice;
+
         //calculates subtotal price of items in cart before tax
         subtotal += parseInt(shoppingCartArray[row].optionPrice);
       }
