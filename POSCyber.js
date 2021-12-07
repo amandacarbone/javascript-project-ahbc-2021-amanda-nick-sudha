@@ -25,6 +25,8 @@
     amountInCart.remove();
   }
 
+  amountInCart.classList.add("amountInCart");
+
   //add class to closeButton, and placeholder innerText
   closeButton.classList.add("closeButton");
   closeButton.innerText = "X";
