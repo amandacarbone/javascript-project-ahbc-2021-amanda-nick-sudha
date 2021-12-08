@@ -401,10 +401,10 @@
     optionSelector.add(option2);
 
     //changes productPrice to the price of option and resets quantity to 1
-    // optionSelector.onchange = function () {
-    //   productPrice.innerText = `Price: CR ${optionSelector.value}`;
-    //   quantityInput.valueAsNumber = 1;
-    // };
+    optionSelector.onchange = function () {
+    productPrice.innerText = `Price: CR ${optionSelector.value}`;
+    quantityInput.valueAsNumber = 1;
+    };
 
     //When quantityInput is changed multiplies and displays price * quantity
     // quantityInput.addEventListener("change", (event) => {
