@@ -41,8 +41,8 @@
   const product = [
     {
       name: "Cortical Stack",
-      image: "_assets/main/cortical-stack-main.png",
-      cartImage: "_assets/cart-images/cortical-stack-cart.png",
+      image: "cortical-stack-main.png",
+      cartImage: "cortical-stack-cart.png",
       description:
         "Your consciousness is downloaded to a specialized chip inserted at the base of the neck. Upon death, this data may be uploaded to an entirely new body. Virtual immortality.",
       options: [
@@ -62,8 +62,8 @@
     },
     {
       name: "Stealth Field",
-      image: "_assets/main/stealth-field-main.png",
-      cartImage: "_assets/cart-images/stealth-field-cart.png",
+      image: "stealth-field-main.png",
+      cartImage: "stealth-field-cart.png",
       description:
         "Minor concealment to total invisibility. Please note that ANS Cybernetics waives all legal responsibility for the criminal use of stealth fields.",
       options: [
@@ -83,8 +83,8 @@
     },
     {
       name: "Optics",
-      image: "_assets/main/optics-main.png",
-      cartImage: "_assets/cart-images/optics-cart.png",
+      image: "optics-main.png",
+      cartImage: "optics-cart.png",
       description:
         "See the world through many different lenses. CAUTION: Only ONE optic should be active at a time. Failure may result in severe headaches and/or blindness.",
       options: [
@@ -104,8 +104,8 @@
     },
     {
       name: "Neuro",
-      image: "_assets/main/neuro-main.png",
-      cartImage: "_assets/cart-images/neuro-cart.png",
+      image: "neuro-main.png",
+      cartImage: "neuro-cart.png",
       description: "Expand and improve cognitive function.",
       options: [
         {
@@ -124,8 +124,8 @@
     },
     {
       name: "Dermal",
-      image: "_assets/main/dermal-main.png",
-      cartImage: "_assets/cart-images/dermal-cart.png",
+      image: "dermal-main.png",
+      cartImage: "dermal-cart.png",
       description: "Strengthen physical resistances to external hazards.",
       options: [
         {
@@ -144,8 +144,8 @@
     },
     {
       name: "Skeletal",
-      image: "_assets/main/skeletal-main.png",
-      cartImage: "_assets/cart-images/skeletal-cart.png",
+      image: "skeletal-main.png",
+      cartImage: "skeletal-cart.png",
       description: "Structural reinforcements for limitless mobility.",
       options: [
         {
@@ -164,8 +164,8 @@
     },
     {
       name: "Immune System",
-      image: "_assets/main/immune-main.png",
-      cartImage: "_assets/cart-images/immune-cart.png",
+      image: "immune-main.png",
+      cartImage: "immune-cart.png",
       description: "Complete protection from the inside out.",
       options: [
         {
@@ -184,8 +184,8 @@
     },
     {
       name: "Nervous System",
-      image: "_assets/main/nervous-main.png",
-      cartImage: "_assets/cart-images/nervous-cart.png",
+      image: "nervous-main.png",
+      cartImage: "nervous-cart.png",
       description: "Awareness redefined and recalibrated.",
       options: [
         {
@@ -204,8 +204,8 @@
     },
     {
       name: "Respiratory System",
-      image: "_assets/main/respiratory-main.png",
-      cartImage: "_assets/cart-images/respiratory-cart.png",
+      image: "respiratory-main.png",
+      cartImage: "respiratory-cart.png",
       description: "Breathe easier with calibrated, measured function.",
       options: [
         {
@@ -224,8 +224,8 @@
     },
     {
       name: "Circulatory System",
-      image: "_assets/main/circulatory-main.png",
-      cartImage: "_assets/cart-images/circulatory-cart.png",
+      image: "circulatory-main.png",
+      cartImage: "circulatory-cart.png",
       description: "Precision control of your most vital force.",
       options: [
         {
@@ -244,8 +244,8 @@
     },
     {
       name: "Arms",
-      image: "_assets/main/arms-main.png",
-      cartImage: "_assets/cart-images/arms-cart.png",
+      image: "arms-main.png",
+      cartImage: "arms-cart.png",
       description: "Enhance physical capability and dexterity.",
       options: [
         {
@@ -264,8 +264,8 @@
     },
     {
       name: "Legs",
-      image: "_assets/main/legs-main.png",
-      cartImage: "_assets/cart-images/legs-cart.png",
+      image: "legs-main.png",
+      cartImage: "legs-cart.png",
       description: "Increased power and longevity for complete mobile freedom.",
       options: [
         {

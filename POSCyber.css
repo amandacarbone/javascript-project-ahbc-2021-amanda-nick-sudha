@@ -245,7 +245,7 @@ video {
 }
 
 .shoppingCartButton {
-  background: url(_assets/header-icons/shopping-cart.png) no-repeat center;
+  background: url(shopping-cart.png) no-repeat center;
   border: 5px solid #000000;
   background-color: #fdff00;
   border-radius: 50%;
